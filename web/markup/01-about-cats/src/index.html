@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>02-about-cats</title>
+    <link rel="stylesheet" href="./index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&family=Yeseva+One&display=swap" rel="stylesheet"> 
+  </head>
+  <body>
+    <header class="header">
+      
+    </header>
+    <main class="layout">
+      <!-- Кнопка изменения представления -->
+      <input class="switch" type="checkbox" id="checkbox" hidden>
+      <label class="switch_label" for="checkbox">
+        <img class="catIcon" src="./pics/catIcon.png" alt="catIcon">
+        <img class="breadIcon" src="./pics/breadIcon.png" alt="breadIcon">
+        Изменить представление!
+      </label>
+
+      <article class="cats">
+        <!-- Блок с первым котом -->
+        <h2 class="cats_header">Коты в наличии:</h2>
+        <article class="cat_container">
+          <h3 class="cat_container_header"></h3>
+          <img class="cat_img" src="pics/smol.jpg" alt="cat_pic">
+          <section class="cat_description">
+            <h4 class="cat_name"> 
+              <a class="cat_name_href" href="pics/smol.jpg" target="_blank"> Одри </a>
+            </h4>
+            <ul class="description_list short_description">
+              <li class="age">Возраст: 1,5 месяца</li>
+              <li class="breed">Порода: нет</li>
+              <li class="diseases">Болезни: нет</li>
+              <li class="status">Статус: ищет хозяина</li>
+            </ul>
+            <ul class="description_list long_description">
+              <li class="character">Черты характера: игривая</li>
+              <li class="age">Возраст: 1,5 месяца</li>
+              <li class="about">Эта кошка играет со всем, что видит!</li>
+            </ul>
+          </section>
+        </article>
+
+        <!-- Блок со вторым котом -->
+        <article class="cat_container">
+          <h3 class="cat_container_header"></h3>
+            <img class="cat_img" src="pics/linch.jpg" alt="cat_pic">
+          <section class="cat_description">
+            <h4 class="cat_name"> 
+              <a class="cat_name_href" href="pics/linch.jpg" target="_blank"> Линч </a>
+            </h4>
+            <ul class="description_list short_description">
+              <li class="age">Возраст: 7 лет</li>
+              <li class="breed">Порода: нет</li>
+              <li class="diseases">Болезни: нет</li>
+              <li class="status">Статус: ищет хозяина</li>
+            </ul>
+            <ul class="description_list long_description">
+              <li class="character">Черты характера: непредсказуемый</li>
+              <li class="age">Возраст: 7 лет</li>
+              <li class="about">Никогда не знаешь, что ждать от этого кота.</li>
+            </ul>
+          </section>
+        </article>
+
+        <!-- И так далее -->
+        <article class="cat_container">
+          <h3 class="cat_container_header"></h3>
+            <img class="cat_img" src="pics/mon.jpg" alt="cat_pic">
+          <section class="cat_description">
+            <h4 class="cat_name"> 
+              <a class="cat_name_href" href="pics/mon.jpg" target="_blank"> Моника </a>
+            </h4>
+            <ul class="description_list short_description">
+              <li class="age">Возраст: 3 года</li>
+              <li class="breed">Порода: нет</li>
+              <li class="diseases">Болезни: нет</li>
+              <li class="status">Статус: ищет хозяина</li>
+            </ul>
+            <ul class="description_list long_description">
+              <li class="character">Черты характера: заботливая</li>
+              <li class="age">Возраст: 3 года</li>
+              <li class="about">Эта кошка любит людей. Особенно спать на них.</li>
+            </ul>
+          </section>
+        </article>
+
+        <article class="cat_container">
+          <h3 class="cat_container_header"></h3>
+            <img class="cat_img" src="pics/ares.jpg" alt="cat_pic">
+          <section class="cat_description">
+            <h4 class="cat_name"> 
+              <a class="cat_name_href" href="pics/ares.jpg" target="_blank"> Арес </a>
+            </h4>
+            <ul class="description_list short_description">
+              <li class="age">Возраст: 5 лет</li>
+              <li class="breed">Порода: нет</li>
+              <li class="diseases">Болезни: нет</li>
+              <li class="status">Статус: ищет хозяина</li>
+            </ul>
+            <ul class="description_list long_description">
+              <li class="character">Черты характера: воинственный</li>
+              <li class="age">Возраст: 5 лет</li>
+              <li class="about">Любит драться с другими котами.</li>
+            </ul>
+          </section>
+        </article>
+
+        <article class="cat_container">
+          <h3 class="cat_container_header"></h3>
+            <img class="cat_img" src="pics/morfey.jpg" alt="cat_pic">
+          <section class="cat_description">
+            <h4 class="cat_name"> 
+              <a class="cat_name_href" href="pics/morfey.jpg" target="_blank"> Морфей </a>
+            </h4>
+            <ul class="description_list short_description">
+              <li class="age">Возраст: 8 месяцев</li>
+              <li class="breed">Порода: нет</li>
+              <li class="diseases">Болезни: нет</li>
+              <li class="status">Статус: ищет хозяина</li>
+            </ul>
+            <ul class="description_list long_description">
+              <li class="character">Черты характера: спокойный</li>
+              <li class="age">Возраст: 8 месяцев</li>
+              <li class="about">Очень-очень любит спать.</li>
+            </ul>
+          </section>
+        </article>
+
+        <article class="cat_container">
+          <h3 class="cat_container_header"></h3>
+            <img class="cat_img" src="pics/dionis.jpg" alt="cat_pic">
+          <section class="cat_description">
+            <h4 class="cat_name"> 
+              <a class="cat_name_href" href="pics/dionis.jpg" target="_blank"> Дионис </a>
+            </h4>
+            <ul class="description_list short_description">
+              <li class="age">Возраст: 4 года</li>
+              <li class="breed">Порода: нет</li>
+              <li class="diseases">Болезни: нет</li>
+              <li class="status">Статус: ищет хозяина</li>
+            </ul>
+            <ul class="description_list long_description">
+              <li class="character">Черты характера: дружелюбный</li>
+              <li class="age">Возраст: 4 года</li>
+              <li class="about">Всегда поддержит в трудную минуту.</li>
+            </ul>
+          </section>
+        </article>
+
+        <article class="cat_container">
+          <h3 class="cat_container_header"></h3>
+            <img class="cat_img" src="pics/aristotel.jpg" alt="cat_pic">
+          <section class="cat_description">
+            <h4 class="cat_name"> 
+              <a class="cat_name_href" href="pics/aristotel.jpg" target="_blank"> Аристотель </a>
+            </h4>
+            <ul class="description_list short_description">
+              <li class="age">Возраст: 2 месяца</li>
+              <li class="breed">Порода: нет</li>
+              <li class="diseases">Болезни: нет</li>
+              <li class="status">Статус: ищет хозяина</li>
+            </ul>
+            <ul class="description_list long_description">
+              <li class="character">Черты характера: споконый</li>
+              <li class="age">Возраст: 2 месяца</li>
+              <li class="about">Любит задумчиво смотреть в окно.</li>
+            </ul>
+          </section>
+        </article>
+
+        <article class="cat_container">
+          <h3 class="cat_container_header"></h3>
+            <img class="cat_img" src="pics/nukta.jpg" alt="cat_pic">
+          <section class="cat_description">
+            <h4 class="cat_name"> 
+              <a class="cat_name_href" href="pics/nukta.jpg" target="_blank"> Нюкта </a>
+            </h4>
+            <ul class="description_list short_description">
+              <li class="age">Возраст: 3 года</li>
+              <li class="breed">Порода: нет</li>
+              <li class="diseases">Болезни: нет</li>
+              <li class="status">Статус: ищет хозяина</li>
+            </ul>
+            <ul class="description_list long_description">
+              <li class="character">Черты характера: игривая (по ночам)</li>
+              <li class="age">Возраст: 3 года</li>
+              <li class="about">По ночам очень активная, днем всегда спит.</li>
+            </ul>
+          </section>
+        </article>
+
+        <article class="cat_container">
+          <h3 class="cat_container_header"></h3>
+            <img class="cat_img" src="pics/bread.jpg" alt="cat_pic">
+          <section class="cat_description">
+            <h4 class="cat_name"> 
+              <a class="cat_name_href" href="pics/bread.jpg" target="_blank"> Хлеб </a>
+            </h4>
+            <ul class="description_list short_description">
+              <li class="age">Возраст: 4 годa</li>
+              <li class="breed">Порода: хлеб</li>
+              <li class="diseases">Болезни: нет</li>
+              <li class="status">Статус: ищет хозяина</li>
+            </ul>
+            <ul class="description_list long_description">
+              <li class="character">Черты характера: споконый</li>
+              <li class="age">Возраст: 4 годa</li>
+              <li class="about">Умиротворенный кот, любит спать.</li>
+            </ul>
+          </section>
+        </article>
+
+        <article class="cat_container">
+          <h3 class="cat_container_header"></h3>
+            <img class="cat_img" src="pics/gerta.jpg" alt="cat_pic">
+          <section class="cat_description">
+            <h4 class="cat_name"> 
+              <a class="cat_name_href" href="pics/gerta.jpg" target="_blank"> Герта </a>
+            </h4>
+            <ul class="description_list short_description">
+              <li class="age">Возраст: 2 годa</li>
+              <li class="breed">Порода: нет</li>
+              <li class="diseases">Болезни: нет</li>
+              <li class="status">Статус: ищет хозяина</li>
+            </ul>
+            <ul class="description_list long_description">
+              <li class="character">Черты характера: игривая</li>
+              <li class="age">Возраст: 2 годa</li>
+              <li class="about">Ворует и теряет резинки для волос.</li>
+            </ul>
+          </section>
+        </article>
+
+      </article>
+    </main>
+  </body>
+</html>
