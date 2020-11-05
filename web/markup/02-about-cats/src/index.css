@@ -1,0 +1,374 @@
+
+body {
+    height: 100%;
+    margin: 0;
+    margin-bottom: 90px;
+}
+
+.layout {
+    min-height: 100%;
+    overflow: hidden;
+}
+
+
+/* Header */
+.page_header, .page_footer {
+    background-color: honeydew;
+    z-index: 1000;
+}
+
+.page_header {
+    border-bottom: 1px solid gray;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.header_title {
+    margin: 0 0 10px 0;
+    text-align: center;
+    font-size: 32px;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-weight: lighter;
+}
+
+.header_title::first-letter {
+     color: red;
+}
+
+/* Carousel */
+
+.carousel {
+    width: 100%;
+    height: 100%;
+}
+
+input[name="image-selector"] {
+    display: none;
+}
+
+
+.items {
+    width: 100%;
+    margin-top: 100px;
+    white-space: nowrap;
+}
+
+.item {
+    left: -66%;
+    display: inline-block;
+    width: 33%;
+    height: 400px;
+    margin: 0 10px;
+}
+
+.img
+{
+    opacity: 0.7;
+    width: 100%;
+    height: 80%;
+    vertical-align: middle;
+    border: 1px solid black;
+}
+
+.rounds {
+    width: max-content;
+    margin: auto;
+}
+
+.round {
+    display: inline-block;
+    background-color: rgba(182, 182, 182, 0.856);
+    width: 10px;
+    height: 10px;
+    border: black 1px solid;
+    border-radius: 200px;
+}
+
+
+.ares_radio:checked ~ .items .ares_img,
+.aristotel_radio:checked ~ .items .aristotel_img, 
+.dionis_radio:checked ~ .items .dionis_img,
+.mon_radio:checked ~ .items .mon_img,
+.bread_radio:checked ~ .items .bread_img,
+.gerta_radio:checked ~ .items .gerta_img,
+.linch_radio:checked ~ .items .linch_img,
+.morfey_radio:checked ~ .items .morfey_img,
+.nukta_radio:checked ~ .items .nukta_img,
+.smol_radio:checked ~ .items .smol_img {
+    opacity: 1000;
+    height: 100%;
+}
+
+.ares_radio:checked ~ .rounds .ares_round,
+.aristotel_radio:checked ~ .rounds .aristotel_round,
+.dionis_radio:checked ~ .rounds .dionis_round,
+.mon_radio:checked ~ .rounds .mon_round,
+.bread_radio:checked ~ .rounds .bread_round,
+.gerta_radio:checked ~ .rounds .gerta_round,
+.linch_radio:checked ~ .rounds .linch_round,
+.morfey_radio:checked ~ .rounds .morfey_round,
+.nukta_radio:checked ~ .rounds .nukta_round,
+.smol_radio:checked ~ .rounds .smol_round  {
+    background-color: gray;
+}
+
+.ares_radio:checked ~ .items .item {
+    transition: 0.5s;
+    position: relative;
+    left: 33%;
+}
+
+.aristotel_radio:checked ~ .items .item {
+    transition: 0.5s;
+    position: relative;
+    left: 0;
+}
+
+.dionis_radio:checked ~ .items .item {
+    transition: 0.5s;
+    position: relative;
+    left: -33%;
+}
+
+.mon_radio:checked ~ .items .item {
+    transition: 0.5s;
+    position: relative;
+    left: -70%;
+}
+
+.bread_radio:checked ~ .items .item {
+    transition: 0.5s;
+    position: relative;
+    left: -105%;
+}
+
+.gerta_radio:checked ~ .items .item {
+    transition: 0.5s;
+    position: relative;
+    left: -137%;
+}
+
+.linch_radio:checked ~ .items .item {
+    transition: 0.5s;
+    position: relative;
+    left: -170%;
+}
+
+.morfey_radio:checked ~ .items .item {
+    transition: 0.5s;
+    position: relative;
+    left: -208%;
+}
+
+.nukta_radio:checked ~ .items .item {
+    transition: 0.5s;
+    position: relative;
+    left: -240%;
+}
+
+.smol_radio:checked ~ .items .item {
+    transition: 0.5s;
+    position: relative;
+    left: -275%;
+}
+
+
+.description_block, .description_background {
+    display: none;
+}
+
+.label_for_open_description
+{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    opacity: 1;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.name_header {
+    color: white;
+    display: block;
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    font-size: 32px;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-weight: lighter;
+}
+
+/* При наведении на итем в карусели, подсвеичвается имя */
+.ares_radio:checked ~ .items .item:hover > .ares_label_for_open_description,
+.aristotel_radio:checked ~ .items .item_aristotel:hover > .aristotel_label_for_open_description,
+.bread_radio:checked ~ .items .item_bread:hover > .bread_label_for_open_description,
+.dionis_radio:checked ~ .items .item_dionis:hover > .dionis_label_for_open_description,
+.gerta_radio:checked ~ .items .item_gerta:hover > .gerta_label_for_open_description,
+.linch_radio:checked ~ .items .item_linch:hover > .linch_label_for_open_description,
+.mon_radio:checked ~ .items .item_mon:hover > .mon_label_for_open_description,
+.morfey_radio:checked ~ .items .item_morfey:hover > .morfey_label_for_open_description,
+.nukta_radio:checked ~ .items .item_nukta:hover > .nukta_label_for_open_description,
+.smol_radio:checked ~ .items .item_smol:hover > .smol_label_for_open_description {
+    display: block;
+}
+
+
+/* Открыли модальное окно */
+.description_background, .description_block, .description_window {
+    display: none;
+}
+
+.open_description:checked ~ .description_background {
+    background-color: rgba(0, 0, 0, .8);
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.open_description:checked ~ .description_background .description_block {
+    display: block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%); 
+    width: 60%;
+    height: 70%;
+    opacity: 1;
+    z-index: 20;
+}
+
+.description_window {
+    height: 100%;
+}
+
+
+.description_img {
+    display: inline-block;
+    margin-top: 5%;
+    width: 45%;
+    height: 70%;
+}
+
+.description_name {
+    font-size: 32px;
+    margin-bottom: 5%;
+}
+
+.description {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 15%;
+    width: 40%;
+    font-size: 25px;
+    list-style: none;
+    color: white;
+}
+
+
+@media screen and (max-width:1015px) {
+    .description {
+        font-size: 16px;
+    }
+ }
+
+.close_img {
+    display: block;
+    width: 3%;
+    height: 4%;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+
+
+.ares_checkbox:checked ~ .description_background .ares_description_block_label,
+.ares_checkbox:checked ~ .description_background .ares_description_window,
+.aristotel_checkbox:checked ~ .description_background .aristotel_description_block_label,
+.aristotel_checkbox:checked ~ .description_background .aristotel_description_window,
+.bread_checkbox:checked ~ .description_background .bread_description_block_label,
+.bread_checkbox:checked ~ .description_background .bread_description_window,
+.dionis_checkbox:checked ~ .description_background .dionis_description_block_label,
+.dionis_checkbox:checked ~ .description_background .dionis_description_window,
+.gerta_checkbox:checked ~ .description_background .gerta_description_block_label,
+.gerta_checkbox:checked ~ .description_background .gerta_description_window,
+.linch_checkbox:checked ~ .description_background .linch_description_block_label,
+.linch_checkbox:checked ~ .description_background .linch_description_window, 
+.mon_checkbox:checked ~ .description_background .mon_description_block_label,
+.mon_checkbox:checked ~ .description_background .mon_description_window,
+.morfey_checkbox:checked ~ .description_background .morfey_description_block_label,
+.morfey_checkbox:checked ~ .description_background .morfey_description_window,
+.nukta_checkbox:checked ~ .description_background .nukta_description_block_label,
+.nukta_checkbox:checked ~ .description_background .nukta_description_window,
+.smol_checkbox:checked ~ .description_background .smol_description_block_label,
+.smol_checkbox:checked ~ .description_background .smol_description_window {
+    display: block;
+}
+
+
+
+
+/* Footer */
+.page_footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    border-top: 1px solid gray;
+    height: 80px;
+}
+
+.contacts {
+    float: left;
+    margin: 10px 0 10px 10px;
+}
+
+.copyright {
+   float: right;
+   margin: 10px 10px 10px 0;
+}
+
+.contacts_title, .copyright_title, .footer_link {
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    font-weight: lighter;
+}
+
+.contacts_title {
+    margin: 0;
+    color: gray;
+}
+
+.contacts_link, .copyright_link {
+    color: #4c4cd8;
+    text-decoration: none;
+}
+
+.contacts_link {
+    display: block;
+}
+
+.contacts_link::before {
+    content: url('./pics/email.png');
+}
+
+@media (max-width: 400px) {
+    .page_footer {
+        height: auto;
+    }
+    
+    .contacts, .copyright {
+        float: none;
+    }
+
+    .copyright_title {
+        margin: 0;
+    }
+}
