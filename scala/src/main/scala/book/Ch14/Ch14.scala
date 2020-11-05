@@ -17,7 +17,7 @@ object Ch14 extends App {
   // }
   //
   // В Scala можно добавить в предложение-ограничитель (guard clause), например:
-  // case ch if Character.isDigit(ch) => digit = Character.digit(ch, 10)
+  // case _ if Character.isDigit(ch) => digit = Character.digit(ch, 10)
   // Предложение-ограничитель (guard clause) может быть любым логическим условием.
   // Если за ключевым словом case следует имя переменной, результат выражения сопоставления будет присвоен этой переменной.
   //     "asd123" foreach {
