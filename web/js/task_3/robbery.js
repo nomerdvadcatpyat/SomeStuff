@@ -1,6 +1,6 @@
 'use strict';
 
-const days = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
+let days = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
 
 /**
  * Возвращает объект shedule со временем в UTC.
@@ -22,16 +22,22 @@ function getUTCShedule(shedule) {
   /**
    * Переводит представление времени из задачи в UTC, начиная с 2020-06-01 (Это понедельник и так удобно ориентироваться)
    * @param {object} raw 
-   * @returns {Date} Utc date
+   * @returns {Date} Utc raw_date
    */
   function rawToUtcDate(raw, fromOrTo) {
-      let date = raw[fromOrTo];
-      let day = '0' + (days.indexOf(date.split(' ')[0]) + 1);
-      let time = date.split(' ')[1].split('+')[0];
-      let offset = date.split(' ')[1].split('+')[1];
-      if(offset < 10) offset = '0' + offset;
+      let raw_date = raw[fromOrTo];
+      let day = '0' + (days.indexOf(raw_date.split(' ')[0]) + 1);
+      let time = raw_date.split(' ')[1].split('+')[0];
+      let offset = raw_date.split(' ')[1].split('+')[1];
+      let dateWithoutOffset = new Date(Date.parse(`5000-12-${day}T${time}:00`));
+      let oldDateMinutes = dateWithoutOffset.getUTCMinutes(); // Какого-то хуя сдвигает на -5 часов (часовой пояс екб)
 
-      return new Date(Date.parse(`2020-06-${day}T${time}:00+${offset}:00`));
+      // Привести все к оффсет = 0
+      // Сначала сдвигаем оффсет, который задан в задаче. Потом убираем локальный оффсет. new Date() сразу добавляет оффсет региона, поэтому его нужно вычитать
+      // ТОЛЬКО ВОТ СНИЗУ КАКОГО-ТО ХУЯ НЕ НУЖНО СДВИГАТЬ????????????????
+      let res = new Date(dateWithoutOffset.setMinutes(oldDateMinutes - offset * 60 - new Date().getTimezoneOffset()));
+
+      return res;
     }
 }
 
@@ -56,41 +62,32 @@ function getAppropriateMoment(schedule, duration, workingHours) {
         { from: `СР ${workingHours.from}`, to: `СР ${workingHours.to}` } 
       ] 
     })['Bank'];
-  // Расписание участников в UTC
+  // Расписание участников в UTC (0 сдвиг)
   let utcPersonsShedule = getUTCShedule(schedule);
   // Количество минут в рабочем дне банка
   let minutsInBankDay = (utcBankShedule[0]['to'] - utcBankShedule[0]['from'])/60000;
-  // Есть ли нужный временной интервал и когда он начинается, если есть
+  // Во сколько минут начался рабочий день банка
+  let bankOLDMinutes = utcBankShedule[0]['from'].getUTCMinutes();
+  // Есть ли нужный свободный временной интервал и когда он начинается, если есть
   let isSucces = false;
   let successStartTime;
-
+  // Цикл идет по дням, когда работает банк. В каждом из дней смотрит на каждую минуту работы банка и проверяет занят ли кто-то в эту минуту.
+  // Если занят (isIntersectIntervals = true), то обнулить счеткик успешных минут, если нет - прибавить количество успешных минут.
   for(let day of utcBankShedule) {
     let successMinutes = 0;
-
-    // !!!!!!! НИХУЯ НЕ ПОНЯТНО !!!!!!!!
-    // Почему-то если = 1; <=, то у интервалов (у всех, кроме 1) добавляется +1 минута.
-    // !!!!!!!!!!! ПОФИКСИЛ !!!!!!!!!!!!!!
-    // <= включает в себя минуту, когда банк уже закрылся!!!! А это не так!!!
-
     for(let dayMinutesCounter = 0; dayMinutesCounter < minutsInBankDay; dayMinutesCounter++ ) {
       if(isSucces) break;
       // Этот итерМомент нужно будет сравнивать со всеми интервалами челов. Если он попадает в хоть один из интервалов хоть одного из челиков, то successMinutes обнулить
-      let iterMoment = new Date(new Date(day.from).setMinutes(dayMinutesCounter)); // дата со сдвигом в минутах от начала рабочего дня банка 
+      let iterMoment = new Date(new Date(day.from).setMinutes(bankOLDMinutes + dayMinutesCounter)); // дата со сдвигом в минутах от начала рабочего дня банка 
       // в new Date(day.from) создается новая ссылка чтобы не изменять время изначального расписания банка 
       // (таким образом минуты прибавляются к начальному времени, а не к измененному предыдущей итерацией)
       // потом оборачиваем timeStamp в Date
 
-      // когда минуты начинаются не с 0 хуево считает походу 
-
       let isIntersectIntervals = false;
-      let nonIntersectMoment = null;
-
+      let nonIntersectMoment;
       for(let person in utcPersonsShedule) {
         for(let interval of utcPersonsShedule[person]) {
-          // console.log(interval, iterMoment);
-          // где-то здесь ошибка. я думаю. Наверное мы считаем что человек занят ОТ (>=) ДО (<), те в ласт минуту в 14 00 (к примеру) он уже не занят, так?
-          // Сука, почему-то когда делаем одно из этого, половина чего-то ломается ААААААААААА
-          if(iterMoment >= interval.from && iterMoment < interval.to) {  // Так же нужно проверять что интервал попадает во время работы банка????
+          if(iterMoment >= interval.from && iterMoment < interval.to) {
             isIntersectIntervals = true;
           }
           else nonIntersectMoment = iterMoment;
@@ -102,26 +99,19 @@ function getAppropriateMoment(schedule, duration, workingHours) {
       }
       else {
         if(successMinutes === 0) {
+          // Если это начало нового непересекающегося интервала
           successStartTime = iterMoment;
-          // console.log(successStartTime)
         }
         successMinutes++;
-        // console.log('Нашли непересекающуюся минуту ', nonIntersectMoment, ' стало ', successMinutes)
-        // console.log('было ', successMinutes);
 
         if(successMinutes === duration) {
-          // console.log('Зашли ', successStartTime.getUTCMinutes());
+          successStartTime = new Date(successStartTime.setMinutes(successStartTime.getUTCMinutes() + bankOffset * 60)); // Переводим successStartTime в часовой пояс банка
           isSucces = true;
           break;
         }
       }
     }
   }
-
-  // console.log(isSucces);
-  // console.log(duration)
-
-  // console.log(utcBankShedule, utcPersonsShedule);
 
   return {
     /**
@@ -146,10 +136,11 @@ function getAppropriateMoment(schedule, duration, workingHours) {
      */
     format(template) {
       if(!isSucces) return "";
-      let bankStartTime = new Date(successStartTime.setMinutes(successStartTime.getUTCMinutes() + bankOffset * 60));
-      let day = days[bankStartTime.getUTCDay() - 1];
-      let hours = bankStartTime.getUTCHours();
-      let minutes = bankStartTime.getUTCMinutes();
+      let day = days[successStartTime.getUTCDay() - 1];
+      let hours = successStartTime.getUTCHours();
+      let minutes = successStartTime.getUTCMinutes();
+      if(minutes < 10) minutes = '0' + minutes;
+
       return template.replace('%DD', day).replace('%HH', hours).replace('%MM', minutes);
     },
 
