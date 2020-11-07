@@ -1,45 +1,184 @@
 'use strict';
 
 let days = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
+let bankOffset;
 
-/**
- * Возвращает объект shedule со временем в UTC.
- * @param {shedule} shedule
- */
-function getUTCShedule(shedule) {
-  let res = {};
-  for (let key in shedule) {
-    res[key] = shedule[key];
+
+
+class TimeMoment {
+  /** 
+  * Представление момента времени (до минуты)
+  * @param {number} day - индекс дня из массива days
+  * @param {number} hours - часы от 0 до 23
+  * @param {number} minutes - минуты от 0 до 59
+  */
+  constructor(day, hours, minutes) {
+    this.day = day;
+    this.hours = hours;
+    this.minutes = minutes;
   }
 
-  for(let person in res) {
-    for(let time of res[person]) {
-      time.from = rawToUtcDate(time, 'from');
-      time.to = rawToUtcDate(time, 'to');
+  addMinute() {
+    this.minutes = this.minutes + 1;
+    if(this.minutes === 60) {
+      this.minutes = 0;
+      this.hours = this.hours + 1;
+      if(this.hours === 24) {
+        this.hours = 0;
+        this.day = this.day + 1;
+      }
     }
   }
-  return res;
-  /**
-   * Переводит представление времени из задачи в UTC, начиная с 2020-06-01 (Это понедельник и так удобно ориентироваться)
-   * @param {object} raw 
-   * @returns {Date} Utc raw_date
-   */
-  function rawToUtcDate(raw, fromOrTo) {
-      let raw_date = raw[fromOrTo];
-      let day = '0' + (days.indexOf(raw_date.split(' ')[0]) + 1);
-      let time = raw_date.split(' ')[1].split('+')[0];
-      let offset = raw_date.split(' ')[1].split('+')[1];
-      let dateWithoutOffset = new Date(Date.parse(`5000-12-${day}T${time}:00`));
-      let oldDateMinutes = dateWithoutOffset.getUTCMinutes(); // Какого-то хуя сдвигает на -5 часов (часовой пояс екб)
 
-      // Привести все к оффсет = 0
-      // Сначала сдвигаем оффсет, который задан в задаче. Потом убираем локальный оффсет. new Date() сразу добавляет оффсет региона, поэтому его нужно вычитать
-      // ТОЛЬКО ВОТ СНИЗУ КАКОГО-ТО ХУЯ НЕ НУЖНО СДВИГАТЬ????????????????
-      let res = new Date(dateWithoutOffset.setMinutes(oldDateMinutes - offset * 60 - new Date().getTimezoneOffset()));
+  lt(other) {
+    let res = false;
+    if(this.day < other.day) res = true;
+    else if(this.day === other.day && this.hours < other.hours) res = true;
+    else if(this.day === other.day && this.hours === other.hours && this.minutes < other.minutes) res = true;
+    return res;
+  }
 
-      return res;
-    }
+  gt(other) {
+    let res = false;
+    if(this.day > other.day) res = true;
+    else if(this.day === other.day && this.hours > other.hours) res = true;
+    else if(this.day === other.day && this.hours === other.hours && this.minutes > other.minutes) res = true;
+    return res;
+  }
+
+  lq(other) {
+    let res = false;
+    if(this.day < other.day) res = true;
+    else if(this.day === other.day && this.hours < other.hours) res = true;
+    else if(this.day === other.day && this.hours === other.hours && this.minutes <= other.minutes) res = true;
+    return res;
+  }
+
+  gq(other) {
+    let res = false;
+    if(this.day > other.day) res = true;
+    else if(this.day === other.day && this.hours > other.hours) res = true;
+    else if(this.day === other.day && this.hours === other.hours && this.minutes >= other.minutes) res = true;
+    return res;
+  }
 }
+
+
+class TimeInterval {
+  /**
+   * Временной интервал в часовом поясе банка
+   * @param {string} from - строка вида "ПН 12:00+5"
+   * @param {string} to  - строка вида "ПН 12:00+5"
+   */
+  constructor(from, to) {
+    this.from = parseIntoTimeMoment(from);
+    this.to = parseIntoTimeMoment(to);
+
+    /**
+     * @param {string} raw_time_moment - строка вида "ПН 12:00+5"
+     * @returns {TimeMoment} - Представление даты из строки В ЧАСОВОМ ПОЯСЕ БАНКА в видео объекта TimeMoment
+     */
+    function parseIntoTimeMoment(raw_time_moment) {
+      let day = days.indexOf(raw_time_moment.split(' ')[0]);
+      let time = raw_time_moment.split(' ')[1].split('+')[0];
+      let hours = Number(time.split(':')[0]);
+      let minutes = Number(time.split(':')[1]);
+      let offset = Number(raw_time_moment.split(' ')[1].split('+')[1]);
+  
+      if(offset !== bankOffset) {
+        function div(val, by) { // целочисленное деление
+          return (val - val % by) / by;
+        }
+  
+        function addMomentTimeToBankOffset() { // Если офсет чела меньше офсета банка
+          let hoursDif = Math.abs(bankOffset - offset); // разница между часовыми поясами чела и банка в часах
+          hours = hours + hoursDif; // часы чела в часовом поясе банка
+          if(hours > 23) { // Если часы ушли на следующий день
+            let addDay = div(hours, 24); // Тогда добавить hours/24 дней 
+            day = day + addDay;
+            hours = hours % 24;
+            if(day > 2) {
+              day = 2;
+              hours = 23;
+              minutes = 59;
+            }
+            else if(day < 0) {
+              day = 0;
+              hours = 0;
+              minutes = 0;
+            }
+          }
+        }
+
+        function subtractMomentTimeToBankOffset() { // Если офсет чела больше офсета банка
+          let hoursDif = Math.abs(bankOffset - offset); // разница между часовыми поясами чела и банка в часах
+          hours = hours - hoursDif; // часы чела в часовом поясе банка
+          if(hours < 0) { // Если часы ушли на прошлый день
+            let subtractDay = -(div(hours, 24)) + 1; // Тогда количество дней, которые нужно вычесть = априори 1 день назад + количество полных дней назад
+            day = day - subtractDay; // из начального дня вычетаем эту муть
+            hours = 24 + (hours % 24); // часы = 24 - сдвиг часов
+            if(day < 0) { // Если время ушло за ПН 00:00 банка, то его нет смысла рассматривать
+              day = 0;
+              hours = 0;
+              minutes = 0;
+            }
+            else if(day > 2) {
+              day = 2;
+              hours = 23;
+              minutes = 59;
+            }
+          }
+        }
+  
+        if(offset < bankOffset) addMomentTimeToBankOffset();
+        else if(offset > bankOffset) subtractMomentTimeToBankOffset();
+      }
+  
+      return new TimeMoment(day, hours, minutes);
+    }
+  }
+}
+
+
+
+// /**
+//  * Возвращает объект shedule со временем в UTC.
+//  * @param {Object} shedule
+//  */
+// function getUTCShedule(shedule) {
+//   let res = {};
+//   for (let key in shedule) {
+//     res[key] = shedule[key];
+//   }
+
+//   for(let person in res) {
+//     for(let time of res[person]) {
+//       time.from = rawToUtcDate(time, 'from');
+//       time.to = rawToUtcDate(time, 'to');
+//     }
+//   }
+//   return res;
+//   /**
+//    * Переводит представление времени из задачи в UTC, начиная с 2020-06-01 (Это понедельник и так удобно ориентироваться)
+//    * @param {Object} raw 
+//    * @returns {Date} Utc raw_date
+//    */
+//   function rawToUtcDate(raw, fromOrTo) {
+//       let raw_date = raw[fromOrTo];
+//       let day = '0' + (days.indexOf(raw_date.split(' ')[0]) + 1);
+//       let time = raw_date.split(' ')[1].split('+')[0];
+//       let offset = raw_date.split(' ')[1].split('+')[1];
+//       let dateWithoutOffset = new Date(Date.parse(`5000-12-${day}T${time}:00`));
+//       let oldDateMinutes = dateWithoutOffset.getUTCMinutes(); // Какого-то хуя сдвигает на -5 часов (часовой пояс екб)
+
+//       // Привести все к оффсет = 0
+//       // Сначала сдвигаем оффсет, который задан в задаче. Потом убираем локальный оффсет. new Date() сразу добавляет оффсет региона, поэтому его нужно вычитать
+//       // ТОЛЬКО ВОТ СНИЗУ КАКОГО-ТО ХУЯ НЕ НУЖНО СДВИГАТЬ????????????????
+//       let res = new Date(dateWithoutOffset.setMinutes(oldDateMinutes - offset * 60 - new Date().getTimezoneOffset()));
+
+//       return res;
+//     }
+// }
 
 /**
  * @param {Object} schedule Расписание Банды
@@ -50,47 +189,69 @@ function getUTCShedule(shedule) {
  * @returns {Object}
  */
 function getAppropriateMoment(schedule, duration, workingHours) {
-  let bankOffset = workingHours['from'].split('+')[1];
-  if(bankOffset < 10) bankOffset = '0' + bankOffset;
+  bankOffset = workingHours['from'].split('+')[1];
+  // if(bankOffset < 10) bankOffset = '0' + bankOffset;
 
-  // Расписание первых 3 дней работы банка в UTC
-  let utcBankShedule = getUTCShedule(
-    { Bank:  
+  // Расписание первых 3 дней работы банка
+  let bankShedule =
       [ 
-        { from: `ПН ${workingHours.from}`, to: `ПН ${workingHours.to}` },
-        { from: `ВТ ${workingHours.from}`, to: `ВТ ${workingHours.to}` },
-        { from: `СР ${workingHours.from}`, to: `СР ${workingHours.to}` } 
-      ] 
-    })['Bank'];
-  // Расписание участников в UTC (0 сдвиг)
-  let utcPersonsShedule = getUTCShedule(schedule);
-  // Количество минут в рабочем дне банка
-  let minutsInBankDay = (utcBankShedule[0]['to'] - utcBankShedule[0]['from'])/60000;
-  // Во сколько минут начался рабочий день банка
-  let bankOLDMinutes = utcBankShedule[0]['from'].getUTCMinutes();
-  // Есть ли нужный свободный временной интервал и когда он начинается, если есть
+        new TimeInterval(`ПН ${workingHours.from}`, `ПН ${workingHours.to}`),
+        new TimeInterval(`ВТ ${workingHours.from}`, `ВТ ${workingHours.to}`),
+        new TimeInterval(`СР ${workingHours.from}`, `СР ${workingHours.to}`)
+      ];
+
+  // Расписание участников в часовом поясе банка
+  for(let person in schedule) {
+    for(let i = 0; i < schedule[person].length; i ++) {
+      schedule[person][i] = new TimeInterval(schedule[person][i]['from'], schedule[person][i]['to']);
+    }
+  }
+  // console.log(bankShedule)
+  // for(let person in schedule) console.log(person, schedule[person])
+
+  // [
+  //   TimeInterval {
+  //     from: TimeMoment { day: 0, hours: 10, minutes: 0 },
+  //     to: TimeMoment { day: 0, hours: 12, minutes: 0 }
+  //   },
+  //   TimeInterval {
+  //     from: TimeMoment { day: 1, hours: 10, minutes: 0 },
+  //     to: TimeMoment { day: 1, hours: 12, minutes: 0 }
+  //   },
+  //   TimeInterval {
+  //     from: TimeMoment { day: 2, hours: 10, minutes: 0 },
+  //     to: TimeMoment { day: 2, hours: 12, minutes: 0 }
+  //   }
+  // ]
+
+  // Rusty [
+  //   TimeInterval {
+  //     from: TimeMoment { day: 0, hours: 7, minutes: 30 },
+  //     to: TimeMoment { day: 0, hours: 12, minutes: 30 }
+  //   },
+  //   TimeInterval {
+  //     from: TimeMoment { day: 1, hours: 9, minutes: 0 },
+  //     to: TimeMoment { day: 1, hours: 12, minutes: 0 }
+  //   }
+  // ]
+
   let isSucces = false;
-  let successStartTime;
-  // Цикл идет по дням, когда работает банк. В каждом из дней смотрит на каждую минуту работы банка и проверяет занят ли кто-то в эту минуту.
-  // Если занят (isIntersectIntervals = true), то обнулить счеткик успешных минут, если нет - прибавить количество успешных минут.
-  for(let day of utcBankShedule) {
+  let successStartTime = {};
+  // смотрим на все дни работы банка и на каждую минуту в них, прибавляя bankDay.from до bankDay.to по минуте.
+  for(let bankDay of bankShedule) {
+    if(isSucces) break;
+
     let successMinutes = 0;
-    for(let dayMinutesCounter = 0; dayMinutesCounter < minutsInBankDay; dayMinutesCounter++ ) {
+    while(bankDay.from.lt(bankDay.to)) {
+      // console.log(bankDay.from)
       if(isSucces) break;
-      // Этот итерМомент нужно будет сравнивать со всеми интервалами челов. Если он попадает в хоть один из интервалов хоть одного из челиков, то successMinutes обнулить
-      let iterMoment = new Date(new Date(day.from).setMinutes(bankOLDMinutes + dayMinutesCounter)); // дата со сдвигом в минутах от начала рабочего дня банка 
-      // в new Date(day.from) создается новая ссылка чтобы не изменять время изначального расписания банка 
-      // (таким образом минуты прибавляются к начальному времени, а не к измененному предыдущей итерацией)
-      // потом оборачиваем timeStamp в Date
 
       let isIntersectIntervals = false;
-      let nonIntersectMoment;
-      for(let person in utcPersonsShedule) {
-        for(let interval of utcPersonsShedule[person]) {
-          if(iterMoment >= interval.from && iterMoment < interval.to) {
+      for(let person in schedule) {
+        for(let interval of schedule[person]) {
+          if(bankDay.from.gq(interval.from) && bankDay.from.lt(interval.to)) {
             isIntersectIntervals = true;
           }
-          else nonIntersectMoment = iterMoment;
         }
       }
 
@@ -99,17 +260,20 @@ function getAppropriateMoment(schedule, duration, workingHours) {
       }
       else {
         if(successMinutes === 0) {
-          // Если это начало нового непересекающегося интервала
-          successStartTime = iterMoment;
+          // Если это начало нового непересекающегося интервала => клонируем итерируемый объект в саццес старт тайм
+          for(let timeMoment in bankDay.from) {
+            successStartTime[timeMoment] = bankDay.from[timeMoment];
+          }
         }
         successMinutes++;
 
         if(successMinutes === duration) {
-          successStartTime = new Date(successStartTime.setMinutes(successStartTime.getUTCMinutes() + bankOffset * 60)); // Переводим successStartTime в часовой пояс банка
           isSucces = true;
           break;
         }
       }
+
+      bankDay.from.addMinute(); // в конце итерации
     }
   }
 
@@ -118,9 +282,7 @@ function getAppropriateMoment(schedule, duration, workingHours) {
      * Найдено ли время
      * @returns {boolean}
      */
-    exists() {
-      return isSucces;
-    },
+    exists() { return isSucces; },
 
     /**
      * Возвращает отформатированную строку с часами
@@ -136,12 +298,7 @@ function getAppropriateMoment(schedule, duration, workingHours) {
      */
     format(template) {
       if(!isSucces) return "";
-      let day = days[successStartTime.getUTCDay() - 1];
-      let hours = successStartTime.getUTCHours();
-      let minutes = successStartTime.getUTCMinutes();
-      if(minutes < 10) minutes = '0' + minutes;
-
-      return template.replace('%DD', day).replace('%HH', hours).replace('%MM', minutes);
+      return template.replace('%DD', days[successStartTime.day]).replace('%HH', successStartTime.hours).replace('%MM', successStartTime.minutes);
     },
 
     /**

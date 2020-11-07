@@ -7,3 +7,5 @@ target
 *.idea
 out
 pom.xml
+node_modules/
+package-lock.json
