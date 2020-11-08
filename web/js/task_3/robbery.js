@@ -79,11 +79,18 @@ class TimeInterval {
      * @returns {TimeMoment} - Представление даты из строки В ЧАСОВОМ ПОЯСЕ БАНКА в видео объекта TimeMoment
      */
     function parseIntoTimeMoment(raw_time_moment) {
+      // console.log(raw_time_moment)
       let day = days.indexOf(raw_time_moment.split(' ')[0]);
+      // console.log(day)
       let time = raw_time_moment.split(' ')[1].split('+')[0];
+      // console.log(time)
       let hours = Number(time.split(':')[0]);
+      // console.log(hours)
       let minutes = Number(time.split(':')[1]);
+      // console.log(minutes)
       let offset = Number(raw_time_moment.split(' ')[1].split('+')[1]);
+      // console.log(offset)
+      // console.log(bankOffset)
   
       if(offset !== bankOffset) {
         function div(val, by) { // целочисленное деление
@@ -92,11 +99,16 @@ class TimeInterval {
   
         function addMomentTimeToBankOffset() { // Если офсет чела меньше офсета банка
           let hoursDif = Math.abs(bankOffset - offset); // разница между часовыми поясами чела и банка в часах
+          // console.log('hoursDif', hoursDif)
           hours = hours + hoursDif; // часы чела в часовом поясе банка
+          // console.log('hours', hours)
           if(hours > 23) { // Если часы ушли на следующий день
             let addDay = div(hours, 24); // Тогда добавить hours/24 дней 
+            // console.log('addDay', addDay)
             day = day + addDay;
+            // console.log('newDay', day)
             hours = hours % 24;
+            // console.log('hours', hours)
             if(day > 2) {
               day = 2;
               hours = 23;
@@ -117,6 +129,7 @@ class TimeInterval {
             let subtractDay = -(div(hours, 24)) + 1; // Тогда количество дней, которые нужно вычесть = априори 1 день назад + количество полных дней назад
             day = day - subtractDay; // из начального дня вычетаем эту муть
             hours = 24 + (hours % 24); // часы = 24 - сдвиг часов
+            
             if(day < 0) { // Если время ушло за ПН 00:00 банка, то его нет смысла рассматривать
               day = 0;
               hours = 0;
@@ -200,6 +213,13 @@ function getAppropriateMoment(schedule, duration, workingHours) {
         new TimeInterval(`СР ${workingHours.from}`, `СР ${workingHours.to}`)
       ];
 
+  if((bankShedule[0].to.hours * 60 + bankShedule[0].to.minutes) <= (bankShedule[0].from.hours * 60 + bankShedule[0].from.minutes))
+      return {
+        exists() { return false; },
+        format(template) { return ""; },
+        tryLater() { return false; }
+      };
+      
   // Расписание участников в часовом поясе банка
   for(let person in schedule) {
     for(let i = 0; i < schedule[person].length; i ++) {
@@ -237,13 +257,14 @@ function getAppropriateMoment(schedule, duration, workingHours) {
 
   let isSucces = false;
   let successStartTime = {};
+
+  let bankWorkingMinutes = (bankShedule[0].to.hours * 60 + bankShedule[0].to.minutes) - (bankShedule[0].from.hours * 60 + bankShedule[0].from.minutes)
+
   // смотрим на все дни работы банка и на каждую минуту в них, прибавляя bankDay.from до bankDay.to по минуте.
   for(let bankDay of bankShedule) {
     if(isSucces) break;
-
     let successMinutes = 0;
-    while(bankDay.from.lt(bankDay.to)) {
-      // console.log(bankDay.from)
+    for(let i = 0; i < bankWorkingMinutes; i++) {
       if(isSucces) break;
 
       let isIntersectIntervals = false;
@@ -251,11 +272,13 @@ function getAppropriateMoment(schedule, duration, workingHours) {
         for(let interval of schedule[person]) {
           if(bankDay.from.gq(interval.from) && bankDay.from.lt(interval.to)) {
             isIntersectIntervals = true;
+            break;
           }
         }
       }
 
       if(isIntersectIntervals) {
+        // console.log('intersect',bankDay.from);
         successMinutes = 0;
       }
       else {
@@ -267,7 +290,7 @@ function getAppropriateMoment(schedule, duration, workingHours) {
         }
         successMinutes++;
 
-        if(successMinutes === duration) {
+        if(successMinutes >= duration) {
           isSucces = true;
           break;
         }
@@ -298,9 +321,14 @@ function getAppropriateMoment(schedule, duration, workingHours) {
      */
     format(template) {
       if(!isSucces) return "";
-      return template.replace('%DD', days[successStartTime.day]).replace('%HH', successStartTime.hours).replace('%MM', successStartTime.minutes);
+      if(successStartTime.hours < 10) successStartTime.hours = '0' + successStartTime.hours;
+      if(successStartTime.minutes < 10) successStartTime.minutes = '0' + successStartTime.minutes;
+      return template
+            .replace('%DD', days[successStartTime.day])
+            .replace('%HH', successStartTime.hours)
+            .replace('%MM', successStartTime.minutes);
     },
-
+    
     /**
      * Попробовать найти часы для ограбления позже [*]
      * @note Не забудь при реализации выставить флаг `isExtraTaskSolved`
