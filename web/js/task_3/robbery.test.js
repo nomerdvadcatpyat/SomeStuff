@@ -306,9 +306,9 @@ describe("Сдвиги", function() {
             Danny: [{ from: 'ПН 12:00+5', to: 'ПН 17:00+5' }, { from: 'ВТ 13:00+5', to: 'ВТ 16:00+5' }],
             Rusty: [{ from: 'ПН 11:30+5', to: 'ПН 16:30+5' }, { from: 'ВТ 13:00+5', to: 'ВТ 16:00+5' }],
             Linus: [
-            { from: 'ПН 09:00+3', to: 'ПН 14:00+3' },
-            { from: 'ПН 21:00+3', to: 'ВТ 09:30+3' },
-            { from: 'СР 09:30+3', to: 'СР 15:00+3' }
+            { from: 'ПН 11:00+5', to: 'ПН 16:00+5' },
+            { from: 'ПН 23:00+5', to: 'ВТ 11:30+5' },
+            { from: 'СР 11:30+5', to: 'СР 17:00+5' }
             ]
         };
             
@@ -319,10 +319,45 @@ describe("Сдвиги", function() {
         const moment = robbery.getAppropriateMoment(gangSchedule, 90, bankWorkingHours);
     
         assert.strictEqual(moment.exists(), true);
-        assert.strictEqual(moment.format('Метим на %DD, старт в %HH:%MM!'), 'Метим на ПН, старт в 10:00!')
+        assert.strictEqual(moment.format('Метим на %DD, старт в %HH:%MM!'), 'Метим на ПН, старт в 10:00!') 
     });
 });
 
 describe("Можно ли грабить через пол часа?", function() {
     // тестирование tryLater()
 });
+
+
+function getRobberyTimes(gangBusyTimes, bankSchedule) {
+    // const dannyPossibleTimes = invertPeriods(gangBusyTimes.Danny);
+    // const linusPossibleTimes = invertPeriods(gangBusyTimes.Linus);
+    // const rustyPossibleTimes = invertPeriods(gangBusyTimes.Rusty);
+
+    const possiblePersonsTimes = invertPeriods(gangBusyTimes);
+
+    let possibleTimes = getTimeIntersections(possiblePersonsTimes['Danny'], possiblePersonsTimes['Linus']);
+    possibleTimes = getTimeIntersections(possibleTimes, possiblePersonsTimes['Rusty']);
+    possibleTimes = getTimeIntersections(possibleTimes, bankSchedule);
+
+    return possibleTimes;
+}
+
+function invertPeriods(schedule) {
+    let res = {};
+    for(let person in schedule) {
+        console.log('sc', schedule[person])
+        schedule[person].sort((a, b) => a.from - b.to);
+
+        const rightBorder = getMinutes(`СР 23:59+${bankOffset}`);
+        let leftBorder = getMinutes(`ПН 00:00+${bankOffset}`);
+
+        res[person] = [];
+        schedule[person].forEach(period => {
+            res[person].push({ from: leftBorder, to: period.from });
+            leftBorder = period.to;
+        });
+        res[person].push({ from: leftBorder, to: rightBorder });
+    }
+
+    return res;
+}
