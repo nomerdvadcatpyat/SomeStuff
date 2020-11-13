@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function generate(document) {
+        var table = document.createElement("table");
+        // div.innerText =  "Hello World!!"
+    
+        for(let i = 0; i < 256; i++) {
+            var row = document.createElement("tr");
+            var code = document.createElement("td");
+            var symb = document.createElement("td");
+            code.innerText = i;
+            symb.innerText = String.fromCharCode(i);
+    
+            row.appendChild(code);
+            row.appendChild(symb);
+    
+            table.appendChild(row);
+        }
+        
+        table.style.border= 'black 1px solid';
+        document.body.appendChild(table)
+    }
+    </script>
+</head>
+<body onload="generate(document)">
+    <table>
+        <tr>
+            <td>
+
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

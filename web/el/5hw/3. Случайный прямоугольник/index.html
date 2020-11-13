@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function generate(document) {
+        let configObj = generateRandom();
+
+        var div = document.createElement("div");
+        div.style.position = "absolute";
+        div.style.top = configObj.y;
+        div.style.left = configObj.x;
+        div.style.backgroundColor = configObj.color;
+        div.style.width = configObj.width;
+        div.style.height = configObj.height;
+        div.innerText =  " "
+
+        document.body.appendChild(div)
+
+        function generateRandom() {
+            let r = Math.random;
+
+            let color = `rgb(${r() * 256}, ${r() * 256}, ${r() * 256})`;
+
+            let width = r() * window.innerWidth;
+            let height = r() * window.innerHeight;
+
+            let x = (window.innerWidth - width) * r();
+            let y = (window.innerHeight - height) * r();
+
+            return {
+                color: color,
+                height: `${height}px`,
+                width: `${width}px`,
+                x: `${x}px`,
+                y: `${y}px`
+            };
+        }
+    }
+    </script>
+</head>
+    <body onload="generate(document)">
+    </body>
+</html>

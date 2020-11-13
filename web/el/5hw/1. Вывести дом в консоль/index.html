@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function tree(node, tabs) {
+            console.log(tabs + node.nodeName) 
+            let childNodes = node.childNodes;
+            for (let i = 0; i < childNodes.length; i++) {
+                tree(childNodes[i], tabs + '\t');
+            }
+        }
+       
+    </script>
+</head>
+<body onload='tree(document, "")'>
+    <h1>Hell</h1>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</body>
+</html>

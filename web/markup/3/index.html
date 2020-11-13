@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Котики</title>
+    <link rel="stylesheet" media="screen" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet"> 
+</head>
+<body>
+<header class="header">
+    <h1 class="header_title">Мурмаркет</h1>
+</header>
+<input type="radio" name="breed" id="all" class="breed-filter all-filter" checked>
+<input type="radio" name="breed" id="sfinks" class="breed-filter sfinks-filter">
+<input type="radio" name="breed" id="persian" class="breed-filter persian-filter">
+<input type="radio" name="breed" id="siam" class="breed-filter siam-filter">
+<input type="radio" name="breed" id="bread" class="breed-filter bread-filter">
+<input type="radio" name="breed" id="none" class="breed-filter none-filter">
+
+<main class="main">
+    <div class="cards">
+        <section class="filter">
+            <h3>Возраст</h3>
+            <div class="slider">
+                <div class="bar">
+                    <div class="start"></div>
+                    <div class="end"></div>
+                </div>
+            </div>
+            <p>от 1,5 до 2 лет</p>
+
+            <h3>Порода</h3>
+            <label class="breed-label all-label" for="all" class="all-filter">Любая</label>
+            <label class="breed-label sfinks-label" for="sfinks">Сфинкс</label>
+            <label class="breed-label persian-label" for="persian">Персидская</label>
+            <label class="breed-label siam-label" for="siam">Сиамская</label>
+            <label class="breed-label bread-label" for="bread">Хлеб</label>
+            <label class="breed-label none-label" for="none">Без породы</label>
+        </section>
+
+        <div class="cat-card siam-breed">
+            <img class="cat_img" src="images/odri.jpg" alt="Сиамская кошка на голубом фоне">
+            <section class="info">
+                <h2 class="name">Одри</h2>
+                <p class="age">Возраст: 1,5 месяца</p>
+                <p class="breed">Порода: сиамская</p>
+                <p class="diseases">Болезни: нет</p>
+                <p class="status">Статус: ищет хозяина</p>
+            </section>
+            <section class="description">
+                <h5 class="characher"> Игривая </h5>
+                Эта кошка играет со всем, что видит!
+            </section>
+        </div>
+        <div class="cat-card siam-breed">
+            <img class="cat_img" src="images/linch.jpg" alt="Сиамский кот лежит и смотрит на тебя">
+            <section class="info">
+                <h2 class="name">Линч</h2>
+                <p class="age">Возраст: 7 лет</p>
+                <p class="breed">Порода: сиамская</p>
+                <p class="diseases">Болезни: нет</p>
+                <p class="status">Статус: ищет хозяина</p>
+            </section>
+            <section class="description">
+                <h5 class="characher"> Непредсказуемый</h5>
+                Никогда не знаешь, что ждать от этого кота.
+            </section>
+        </div>
+        <div class="cat-card persian-breed">
+            <img class="cat_img" src="images/mon.jpg" alt="Персидская кошка лежит">
+            <section class="info">
+                <h2 class="name">Моника</h2>
+                <p class="age">Возраст: 3 года</p>
+                <p class="breed">Порода: персидская</p>
+                <p class="diseases">Болезни: нет</p>
+                <p class="status">Статус: ищет хозяина</p>
+            </section>
+            <section class="description">
+                <h5 class="characher"> Заботливая </h5>
+                Эта кошка любит людей. Особенно спать на них.
+            </section>
+        </div>
+        <div class="cat-card none-breed">
+            <img class="cat_img" src="images/ares.jpg" alt="Рыжий кот кусает носок">
+            <div class="info">
+                <h2 class="name">Арес </h2>
+                <p class="age">Возраст: 5 лет</p>
+                <p class="breed">Порода: нет</p>
+                <p class="diseases">Болезни: нет</p>
+                <p class="status">Статус: ищет хозяина</p>
+            </div>
+            <section class="description">
+                <h5 class="characher"> Воинственный</h5>
+                Любит драться с другими котами.
+            </section>
+        </div>
+        <div class="cat-card none-breed">
+            <img class="cat_img" src="images/morfey.jpg" alt="Маленький кот спит как человек">
+            <section class="info">
+                <h2 class="name">Морфей</h2>
+                <p class="age">Возраст: 1 год</p>
+                <p class="breed">Порода: нет</p>
+                <p class="diseases">Болезни: нет</p>
+                <p class="status">Статус: ищет хозяина</p>
+            </section>
+            <section class="description">
+                <h5 class="characher"> Спокойный</h5>
+                Очень-очень любит спать.
+            </section>
+        </div>
+        <div class="cat-card sfinks-breed">
+            <img class="cat_img" src="images/dionis.jpg" alt="Сфинкс стоит на голубом фоне">
+            <section class="info">
+                <h2 class="name">Дионис</h2>
+                <p class="age">Возраст: 2 года</p>
+                <p class="breed">Порода: сфинкс</p>
+                <p class="diseases">Болезни: нет</p>
+                <p class="status">Статус: ищет хозяина</p>
+            </section>
+            <section class="description">
+                <h5 class="characher"> Дружелюбный </h5>
+                Всегда поддержит в трудную минуту.
+            </section>
+        </div>
+        <div class="cat-card none-breed">
+            <img class="cat_img" src="images/aristotel.jpg" alt="Кот сидит в пледике и смотрит на тебя">
+            <section class="info">
+                <h2 class="name">Аристотель</h2>
+                <p class="age">Возраст: 2 месяца</p>
+                <p class="breed">Порода: нет</p>
+                <p class="diseases">Болезни: нет</p>
+                <p class="status">Статус: ищет хозяина</p>
+            </section>
+            <section class="description">
+                <h5 class="characher"> Споконый </h5>
+                Любит задумчиво смотреть в окно.
+            </section>
+        </div>
+        <div class="cat-card persian-breed">
+            <img class="cat_img" src="images/nukta.jpg" alt="Персидская рыжая кошка смотрит на тебя">
+            <section class="info">
+                <h2 class="name">Нюкта</h2>
+                <p class="age">Возраст: 3 года</p>
+                <p class="breed">Порода: персидская</p>
+                <p class="diseases">Болезни: нет</p>
+                <p class="status">Статус: ищет хозяина</p>
+            </section>
+            <section class="description">
+                <h5 class="characher"> Игривая (по ночам) </h5>
+                По ночам очень активная, днем всегда спит.
+            </section>
+        </div>
+        <div class="cat-card bread-breed">
+            <img class="cat_img" src="images/bread.jpg" alt="Рыжий кот затаился между буханок хлеба">
+            <section class="info">
+                <h2 class="name"> Хлеб </h2>
+                <p class="age">Возраст: 4 годa</p>
+                <p class="breed">Порода: хлеб</p>
+                <p class="diseases">Болезни: нет</p>
+                <p class="status">Статус: ищет хозяина</p>
+            </section>
+            <section class="description">
+                <h5 class="characher">Споконый</h5>
+                Умиротворенный кот, любит спать.
+            </section>
+        </div>
+        <div class="cat-card siam-breed">
+            <img class="cat_img" src="images/gerta.jpg" alt="Сиамская кошка на красном фоне">
+            <section class="info">
+                <h2 class="name">Герта</h2>
+                <p class="age">Возраст: 2 годa</p>
+                <p class="breed">Порода: сиамская</p>
+                <p class="diseases">Болезни: нет</p>
+                <p class="status">Статус: ищет хозяина</p>
+            </section>
+            <section class="description">
+                <h6 class="characher">Игривая</h6>
+                Ворует и теряет резинки для волос.
+            </section>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <p class="contacts">Напишите нам:</p>
+    <a class="footer_link" href="mailto:cats@babuli.ru">cats@babuli.ru</a>
+    <a class="footer_link" href="mailto:vnuchek@babuli.ru">vnuchek@babuli.ru</a>
+    <p class="copyright">&copy; 2018 OOO &laquo;<a class="footer_link" href="#">Бабушкины котятки</a>&raquo;</p>
+</footer>
+</body>
+</html>
