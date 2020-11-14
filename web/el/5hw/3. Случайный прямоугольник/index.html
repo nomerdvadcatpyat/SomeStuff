@@ -6,22 +6,24 @@
     <title>Document</title>
     <script>
         function generate(document) {
-        let configObj = generateRandom();
+        let r = Math.random;
+        let count = r() * 10;
+        console.log(count)
+        for(let i = 0; i < count; i++) {
+            let configObj = generateRandom();
+            var div = document.createElement("div");
+            div.style.position = "absolute";
+            div.style.top = configObj.y;
+            div.style.left = configObj.x;
+            div.style.backgroundColor = configObj.color;
+            div.style.width = configObj.width;
+            div.style.height = configObj.height;
+            div.innerText =  " "
 
-        var div = document.createElement("div");
-        div.style.position = "absolute";
-        div.style.top = configObj.y;
-        div.style.left = configObj.x;
-        div.style.backgroundColor = configObj.color;
-        div.style.width = configObj.width;
-        div.style.height = configObj.height;
-        div.innerText =  " "
-
-        document.body.appendChild(div)
+            document.body.appendChild(div)
+        }
 
         function generateRandom() {
-            let r = Math.random;
-
             let color = `rgb(${r() * 256}, ${r() * 256}, ${r() * 256})`;
 
             let width = r() * window.innerWidth;
