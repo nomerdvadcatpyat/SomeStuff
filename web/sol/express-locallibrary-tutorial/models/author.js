@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var moment = require('moment');
 
 var Schema = mongoose.Schema;
 
@@ -17,6 +18,18 @@ AuthorSchema
 .get(function () {
   return this.family_name + ', ' + this.first_name;
 });
+
+AuthorSchema
+.virtual('dob_formatted')
+.get( function() {
+  return moment(this.date_of_birth).format('MMMM Do, YYYY');
+});
+
+AuthorSchema
+.virtual('dod_formatted')
+.get( function() {
+  return this.date_of_death ? moment(this.date_of_death).format('MMMM Do, YYYY') : 'Steel alive';
+})
 
 // Виртуальное свойство - URL автора
 AuthorSchema
