@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        .rect {
+            position: absolute;
+            border: thick 1px black;
+        }
+    </style>
+    <script>
+
+        function createRect(x, y, width, height, color) {
+				var div = document.createElement("div");
+				div.className = "rect";
+				div.style.width = width + "px";
+				div.style.height = height + "px";
+				div.style.top = y + "px";
+				div.style.left = x + "px";
+				div.style.background = color;
+
+                // div.oncontextmenu = removeRect
+
+				document.body.appendChild(div);
+			}
+
+        function generateColor() {
+            return `rgba(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
+        }
+			
+
+        function move(rect, dx, dy) {
+            var y = rect.style.top.substring(0, rect.style.top.length - 2) * 1;
+            rect.style.top = y + dy + "px";
+        }
+
+        function init() {
+            var rect = createRect(100,100, 50, 50, generateColor())
+            var animationEnabled;   
+
+            document.body.onkeydown = function (event) {
+                console.log(event)
+                if(event.keyCode === 32) {
+                    animationEnabled = true;
+                }
+            }
+
+            document.body.onkeyup = function (event) {
+                console.log('key up');
+                if(event.keyCode === 32) {
+                    animationEnabled = false;
+                }
+            }
+
+            setInterval(function () {
+                move(rect, 1, 1);
+            }, 100); 
+
+        }
+    </script>
+</head>
+<body onload="init()"> 
+    
+</body>
+</html>

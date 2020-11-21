@@ -1,0 +1,187 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.header {
+  background-color: rgb(24, 23, 23);
+  text-align: center;
+  color: white;
+}
+
+.layout {
+  display: grid;
+  grid-template:  'header' 1fr
+                  'main' 8fr
+                  / 1fr;
+}
+
+.main-content {
+  overflow: hidden;
+  grid-area: main;
+}
+
+.pig-card {
+  display: grid;
+  grid-template:  'descr' 70vh
+                  'buttons' 2fr
+                  /1fr;
+  height: 100%;
+}
+.pig-card {display: none;}
+.pig1-card {display: grid;}
+
+
+.pig-photo-and-description {
+  grid-area: descr;
+  height: 60%;
+  width: 90%;
+  justify-self: center;
+  align-self: center;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 1px 1px 28px 0px rgba(34, 60, 80, 0.71);
+  border-radius: 10px;
+}
+
+.pig-pic {
+  height: 100%;
+  width: 100%;
+}
+
+.pig-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(0deg, rgba(0,0,0,0.7539390756302521) 0%, rgba(0,0,0,0.5158438375350141) 42%, rgba(107,107,107,0.05926120448179273) 100%);
+}
+
+.pig-name {
+  font-size: 24px;
+  margin: 0 0 0 10%;
+}
+
+.pig-age {
+  margin: 2% 0 5% 10%;
+}
+
+.buttons {
+  grid-area: buttons;
+  display: flex;
+  justify-content: space-around;
+}
+
+.end-card {
+  height: 100%;
+  flex-flow: column nowrap;
+  text-align: center;
+  justify-content: center;
+}
+
+/* .overlook-pig3:checked ~ .pig4-card,
+.overlook-pig4:checked ~ .pig5-card,
+.overlook-pig5:checked ~ .pig6-card,
+.overlook-pig6:checked ~ .pig7-card,
+.overlook-pig7:checked ~ .pig8-card,
+.overlook-pig8:checked ~ .end-card  */
+
+
+@keyframes swipe-right {
+  0% {
+    left: 0%;
+  }
+  50% {
+    left: 500%;
+  }
+  100% {
+    left: 1000%;
+  }
+}
+
+@keyframes swipe-left {
+  0% {
+    right: 0%;
+  }
+  50% {
+    right: 500%;
+  }
+  100% {
+    right: 1000%;
+  }
+}
+
+@keyframes swipe-top {
+  0% {
+    bottom: 0%;
+  }
+  50% {
+    bottom: 500%;
+  }
+  100% {
+    bottom: 1000%;
+  }
+}
+
+
+.pig-radio-like:checked + .pig-radio-super-like + .pig-radio-dislike + .pig-card > .pig-photo-and-description{
+  animation: swipe-right 2s linear;
+}
+
+.pig-radio-dislike:checked + .pig-card > .pig-photo-and-description{
+  animation: swipe-left 2s linear;
+}
+
+.pig-radio-super-like:checked + .pig-radio-dislike + .pig-card > .pig-photo-and-description {
+  animation: swipe-top 2s linear;
+}
+
+.overlook-pig1:checked ~ .pig2-card,
+.overlook-pig2:checked ~ .pig3-card { 
+  display: grid;
+}
+
+.overlook-pig3:checked ~ .end-card {
+  display: flex;
+}
+
+
+.like, .super-like, .dislike {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 99px;
+}
+
+.like { background-color: rgb(26, 211, 26);}
+.super-like {background-color: rgb(29, 157, 243);}
+.dislike { background-color: rgb(168, 18, 18);}
+
+
+@media (orientation: landscape) {
+  .layout {
+    grid-template:  'header' 1fr
+                    'main' 20fr
+                    / 1fr;
+  }
+  .header {
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+  }
+  .pig-card {
+    grid-template:  'descr buttons' 1fr
+                    /5fr 1fr;
+  }
+  .buttons {
+    flex-flow: column nowrap;
+    justify-content: space-around;
+  }
+  .pig-photo-and-description {
+    height: 90%;
+    width: 60%;
+  }
+}

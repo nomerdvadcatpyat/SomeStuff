@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Events</title>
+		<style>
+            html, body {
+                height: 100%;
+            }
+			.rect {
+				position: absolute;
+				border: thick 1px black;
+			}
+		</style>
+		<script type="text/javascript">
+			function createRect(x, y, width, height, color) {
+				var div = document.createElement("div");
+				div.className = "rect";
+				div.style.width = width + "px";
+				div.style.height = height + "px";
+				div.style.top = y + "px";
+				div.style.left = x + "px";
+				div.style.background = color;
+
+                div.oncontextmenu = removeRect
+
+				document.body.appendChild(div);
+			}
+			
+			function generateColor() {
+				return `rgba(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
+			}
+			
+			function init() {
+				createRect(10, 10, 150, 100, generateColor());
+			}
+
+            function addRect(event) {
+                
+                // pageXY относительно левого верхнего угла со скролами и тд, есть много других координат
+                createRect(event.pageX, event.pageY, 100, 100, generateColor())
+            }
+
+            function removeRect(event) {
+                console.log(event) 
+                var div = event.target;
+                div.parentNode.removeChild(div);
+                // q = event; // можно смотреть на свойства q в консоле браузера
+            }
+
+		</script>
+	</head>
+	<body onclick="addRect(event)" oncontextmenu="event.preventDefault();">
+	</body>
+</html>

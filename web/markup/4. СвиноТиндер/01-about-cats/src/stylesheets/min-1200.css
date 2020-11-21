@@ -1,0 +1,22 @@
+.layout {
+  display: grid;
+  grid-template:  'header' 1fr
+                  'main' 8fr
+                  / 1fr;
+}
+
+.pig-card {
+  grid-template:  'descr' 70vh
+                  'buttons' 2fr
+                  /1fr;
+}
+
+.buttons {
+  flex-flow: row nowrap;
+  width: 30%;
+  margin: auto;
+}
+
+.pig-photo-and-description {
+  width: 80vh;
+}

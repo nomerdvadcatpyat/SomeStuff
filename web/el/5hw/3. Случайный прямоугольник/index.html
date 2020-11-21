@@ -7,9 +7,7 @@
     <script>
         function generate(document) {
         let r = Math.random;
-        let count = r() * 10;
-        console.log(count)
-        for(let i = 0; i < count; i++) {
+        for(let i = 0; i < 5; i++) {
             let configObj = generateRandom();
             var div = document.createElement("div");
             div.style.position = "absolute";

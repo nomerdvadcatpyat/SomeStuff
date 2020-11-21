@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./stylesheets/width-0-360.css"> 
+  <link rel="stylesheet" media="(min-width: 500px)" href="./stylesheets/min-540.css">
+  <link rel="stylesheet" media="(min-width: 1200px)" href="./stylesheets/min-1200.css">
+
+  <title>Document</title>
+</head>
+<body class="layout">
+  <header class="header">
+    <h1 class="title">PigTinder</h1>
+  </header>
+  <main class="main-content">
+
+    <input id="pig1-like" class="pig-radio-like overlook-pig1" type="radio" name="overlook-pig1" hidden>
+    <input id="pig1-super-like" class="pig-radio-super-like overlook-pig1" type="radio" name="overlook-pig1" hidden>
+    <input id="pig1-dislike" class="pig-radio-dislike overlook-pig1" type="radio" name="overlook-pig1" hidden>
+
+    <section id="pig1-card" class="pig-card pig1-card">
+      <article class="pig-photo-and-description">
+        <section class="pig-description">
+          <h4 class="pig-name"> Эльза </h4>
+          <p class="pig-age"> 1 год </p>
+        </section>
+        <img src="./pics/1.jpg" class="pig-pic pig1-pic">
+      </article>
+      <div class="buttons">
+        <label class="like pig1-like" for="pig1-like"></label>
+        <label class="super-like pig1-super-like" for="pig1-super-like"></label>
+        <label class="dislike pig1-dislike" for="pig1-dislike"></label>
+      </div>
+    </section>
+
+    <input id="pig2-like" class="pig-radio-like overlook-pig2" type="radio" name="overlook-pig2" hidden>
+    <input id="pig2-super-like" class="pig-radio-super-like overlook-pig2" type="radio" name="overlook-pig2" hidden>
+    <input id="pig2-dislike" class="pig-radio-dislike overlook-pig2" type="radio" name="overlook-pig2" hidden>
+
+    <section class="pig-card pig2-card">
+      <article class="pig-photo-and-description">
+        <section class="pig-description">
+          <h4 class="pig-name"> Моника </h4>
+          <p class="pig-age"> 7 месяцев </p>
+        </section>
+        <img src="./pics/2.jpg" class="pig-pic pig2-pic">
+      </article>
+      <section class="buttons">
+        <label class="like pig2-like" for="pig2-like"></label>
+        <label class="super-like pig2-super-like" for="pig2-super-like"></label>
+        <label class="dislike pig2-dislike" for="pig2-dislike"></label>
+      </section>
+    </section>
+  
+    <input id="pig3-like" class="pig-radio-like overlook-pig3" type="radio" name="overlook-pig3" hidden>
+    <input id="pig3-super-like" class="pig-radio-super-like overlook-pig3" type="radio" name="overlook-pig3" hidden>
+    <input id="pig3-dislike" class="pig-radio-dislike overlook-pig3" type="radio" name="overlook-pig3" hidden>
+
+    <section class="pig-card pig3-card">
+      <article class="pig-photo-and-description">
+        <section class="pig-description">
+          <h4 class="pig-name"> Антон </h4>
+          <p class="pig-age"> 13 месяцев </p>
+        </section>
+        <img src="./pics/3.jpg" class="pig-pic pig2-pic">
+      </article>
+      <section class="buttons">
+        <label class="like pig3-like" for="pig3-like"></label>
+        <label class="super-like pig3-super-like" for="pig3-super-like"></label>
+        <label class="dislike pig3-dislike" for="pig3-dislike"></label>
+      </section>
+    </section>
+
+    <section class="end-card">
+      <p>
+        The end.
+      </p>
+    </section>
+  </main>
+
+  <script src="./index.js"></script>
+</body>
+</html>

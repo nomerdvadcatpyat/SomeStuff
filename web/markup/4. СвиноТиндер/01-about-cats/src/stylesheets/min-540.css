@@ -1,0 +1,9 @@
+.pig-photo-and-description {
+  height: 90%;
+}
+
+@media (orientation: landscape) { 
+  .pig-photo-and-description {
+    width: 90%;
+  }
+}

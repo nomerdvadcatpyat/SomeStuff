@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <script>
+        function help() {
+            alert('help');
+        }
+
+        function init() {
+            document.body.onkeypress = function (event) {
+                console.log('key pressed');
+            }
+
+            document.body.onkeyup = function (event) {
+                console.log('key up');
+            }
+
+            document.body.onkeydown = function (event) {
+                console.log(event)
+                if(event.code === 'F1') {
+                    event.preventDefault()
+                    help()
+                    event.returnValue = false;
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="init()"> 
+    
+</body>
+</html>
