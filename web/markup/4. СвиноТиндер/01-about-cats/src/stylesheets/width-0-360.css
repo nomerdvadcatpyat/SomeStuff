@@ -65,6 +65,7 @@ html, body {
 
 .pig-name {
   font-size: 24px;
+  font-weight: 200;
   margin: 0 0 0 10%;
 }
 
@@ -83,6 +84,9 @@ html, body {
   flex-flow: column nowrap;
   text-align: center;
   justify-content: center;
+}
+
+.end-card-title {
   font-size: 32px;
 }
 
@@ -159,13 +163,15 @@ html, body {
   display: block;
   width: 60px;
   height: 60px;
-  border-radius: 99px;
+  border-radius: 100%;
   border: 1px solid black;
 
   -webkit-box-shadow: 0px 6px 0px rgba(0, 0, 0, 0.8);
   -moz-box-shadow: 0px 6px 0px rgba(0, 0, 0, 0.8);
   box-shadow: 0px 6px 0px rgba(0, 0, 0, 0.8);
 }
+
+
 
 .like {
   background-image: url('../pics/heart.png');
@@ -212,4 +218,4 @@ html, body {
   }
 }
 
-.wrapper { display: none; }
+.isValid { display: none; }
