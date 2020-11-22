@@ -5,6 +5,10 @@
                   / 1fr;
 }
 
+.header {
+  font-size: 24px;
+}
+
 .pig-card {
   grid-template:  'descr' 70vh
                   'buttons' 2fr

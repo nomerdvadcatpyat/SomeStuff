@@ -1,21 +1,23 @@
-function listenSwipes(element){
+
+function listenSwipes(element, i){
   let startX;
   let startY;
 
-  element.addEventListener('touchstart', function(e){
-      startX = e.changedTouches[0].pageX
-      startY = e.changedTouches[0].pageY
+  element.addEventListener('touchstart', function(event){
+      startX = event.changedTouches[0].pageX
+      startY = event.changedTouches[0].pageY
   })
 
-  element.addEventListener('touchend', function(e){
-      let dx = e.changedTouches[0].pageX - startX;
-      let dy = e.changedTouches[0].pageY - startY;
+  element.addEventListener('touchend', function(event){
+      let dx = event.changedTouches[0].pageX - startX;
+      let dy = event.changedTouches[0].pageY - startY;
       if (Math.abs(dx) > 100 && Math.abs(dy) < 100){
-          if(dx > 0) element.children[1].children[0].dispatchEvent(new MouseEvent('click')) // Нажатие на лейбл лайка / свайп вправо
-          else element.children[1].children[2].dispatchEvent(new MouseEvent('click')) // Нажатие на лейбл дизлайка / свайп влево
+        console.log(document.querySelector(`.pig${i}-like`))
+          if(dx > 0) document.querySelector(`.pig${i}-like`).dispatchEvent(new MouseEvent('click')) // Нажатие на лейбл лайка / свайп вправо
+          else document.querySelector(`.pig${i}-dislike`).dispatchEvent(new MouseEvent('click')) // Нажатие на лейбл дизлайка / свайп влево
       }
       else if (Math.abs(dy) > 100 && Math.abs(dx) < 100){
-          if(dy < 0) element.children[1].children[1].dispatchEvent(new MouseEvent('click')) // супер-лайк / свайп вверх
+          if(dy < 0) document.querySelector(`.pig${i}-super-like`).dispatchEvent(new MouseEvent('click')) // супер-лайк / свайп вверх
       }
   })
 } 
@@ -23,7 +25,7 @@ function listenSwipes(element){
 let len = document.getElementsByClassName('pig-card').length;
 
 for(let i = 0; i < len; i++) 
-  listenSwipes(document.getElementsByClassName('pig-card')[i]);
+  listenSwipes(document.getElementsByClassName('pig-card')[i], i + 1);
 
 
 function removeCard(event) {

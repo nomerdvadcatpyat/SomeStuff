@@ -2,12 +2,15 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background-color: rgb(247, 241, 158);
 }
 
 .header {
   background-color: rgb(24, 23, 23);
   text-align: center;
-  color: white;
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  color: rgb(247, 241, 158);
 }
 
 .layout {
@@ -80,14 +83,12 @@ html, body {
   flex-flow: column nowrap;
   text-align: center;
   justify-content: center;
+  font-size: 32px;
 }
 
-/* .overlook-pig3:checked ~ .pig4-card,
-.overlook-pig4:checked ~ .pig5-card,
-.overlook-pig5:checked ~ .pig6-card,
-.overlook-pig6:checked ~ .pig7-card,
-.overlook-pig7:checked ~ .pig8-card,
-.overlook-pig8:checked ~ .end-card  */
+.end-card-title::first-letter {
+  color: red;
+}
 
 
 @keyframes swipe-right {
@@ -127,39 +128,65 @@ html, body {
 }
 
 
-.pig-radio-like:checked + .pig-radio-super-like + .pig-radio-dislike + .pig-card > .pig-photo-and-description{
+.pig-radio-like:checked + .pig-radio-super-like + .pig-radio-dislike + .pig-card .pig-photo-and-description{
   animation: swipe-right 2s linear;
 }
 
-.pig-radio-dislike:checked + .pig-card > .pig-photo-and-description{
+.pig-radio-dislike:checked + .pig-card .pig-photo-and-description{
   animation: swipe-left 2s linear;
 }
 
-.pig-radio-super-like:checked + .pig-radio-dislike + .pig-card > .pig-photo-and-description {
+.pig-radio-super-like:checked + .pig-radio-dislike + .pig-card .pig-photo-and-description {
   animation: swipe-top 2s linear;
 }
 
 .overlook-pig1:checked ~ .pig2-card,
-.overlook-pig2:checked ~ .pig3-card { 
+.overlook-pig2:checked ~ .pig3-card,
+.overlook-pig3:checked ~ .pig4-card,
+.overlook-pig4:checked ~ .pig5-card,
+.overlook-pig5:checked ~ .pig6-card,
+.overlook-pig6:checked ~ .pig7-card,
+.overlook-pig7:checked ~ .pig8-card { 
   display: grid;
 }
 
-.overlook-pig3:checked ~ .end-card {
+.overlook-pig8:checked ~ .end-card {
   display: flex;
 }
 
 
 .like, .super-like, .dislike {
   display: block;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 99px;
+  border: 1px solid black;
+
+  -webkit-box-shadow: 0px 6px 0px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0px 6px 0px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 6px 0px rgba(0, 0, 0, 0.8);
 }
 
-.like { background-color: rgb(26, 211, 26);}
-.super-like {background-color: rgb(29, 157, 243);}
-.dislike { background-color: rgb(168, 18, 18);}
+.like {
+  background-image: url('../pics/heart.png');
+  background-size: 100%;
+  background-color: rgb(48, 247, 41);
+}
+.super-like {
+  background-image: url('../pics/star.png');
+  background-size: 100%;
+  background-color: rgb(106, 199, 241);
+}
+.dislike { 
+  background-image: url('../pics/cross.png');
+  background-size: 100%;
+  background-color: rgb(211, 81, 81);
+}
 
+.like:active, .super-like:active, .dislike:active {
+  position: relative;
+  top: 10px;
+}
 
 @media (orientation: landscape) {
   .layout {
@@ -178,10 +205,11 @@ html, body {
   }
   .buttons {
     flex-flow: column nowrap;
-    justify-content: space-around;
   }
   .pig-photo-and-description {
     height: 90%;
     width: 60%;
   }
 }
+
+.wrapper { display: none; }

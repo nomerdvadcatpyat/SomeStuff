@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./stylesheets/width-0-360.css"> 
-  <link rel="stylesheet" media="(min-width: 500px)" href="./stylesheets/min-540.css">
+  <link rel="stylesheet" media="(min-width: 400px)" href="./stylesheets/min-400.css">
   <link rel="stylesheet" media="(min-width: 1200px)" href="./stylesheets/min-1200.css">
 
-  <title>Document</title>
+  <title>PigTinder</title>
 </head>
 <body class="layout">
   <header class="header">
@@ -15,67 +15,185 @@
   </header>
   <main class="main-content">
 
-    <input id="pig1-like" class="pig-radio-like overlook-pig1" type="radio" name="overlook-pig1" hidden>
-    <input id="pig1-super-like" class="pig-radio-super-like overlook-pig1" type="radio" name="overlook-pig1" hidden>
-    <input id="pig1-dislike" class="pig-radio-dislike overlook-pig1" type="radio" name="overlook-pig1" hidden>
+    <input id="pig1-like-radio" class="pig-radio-like overlook-pig1" type="radio" name="overlook-pig1" hidden>
+    <input id="pig1-super-like-radio" class="pig-radio-super-like overlook-pig1" type="radio" name="overlook-pig1" hidden>
+    <input id="pig1-dislike-radio" class="pig-radio-dislike overlook-pig1" type="radio" name="overlook-pig1" hidden>
 
     <section id="pig1-card" class="pig-card pig1-card">
+      <h7 class="wrapper"></h7>
       <article class="pig-photo-and-description">
+        <h7 class="wrapper"></h7>
         <section class="pig-description">
-          <h4 class="pig-name"> Эльза </h4>
-          <p class="pig-age"> 1 год </p>
+          <h7 class="pig-name"> Эльза </h7>
+          <p class="pig-age"> 6 месяцев </p>
         </section>
         <img src="./pics/1.jpg" class="pig-pic pig1-pic">
       </article>
       <div class="buttons">
-        <label class="like pig1-like" for="pig1-like"></label>
-        <label class="super-like pig1-super-like" for="pig1-super-like"></label>
-        <label class="dislike pig1-dislike" for="pig1-dislike"></label>
+        <label class="dislike pig1-dislike" for="pig1-dislike-radio"></label> 
+        <label class="super-like pig1-super-like" for="pig1-super-like-radio"></label>
+        <label class="like pig1-like" for="pig1-like-radio"></label>
       </div>
     </section>
 
-    <input id="pig2-like" class="pig-radio-like overlook-pig2" type="radio" name="overlook-pig2" hidden>
-    <input id="pig2-super-like" class="pig-radio-super-like overlook-pig2" type="radio" name="overlook-pig2" hidden>
-    <input id="pig2-dislike" class="pig-radio-dislike overlook-pig2" type="radio" name="overlook-pig2" hidden>
 
-    <section class="pig-card pig2-card">
+    <input id="pig2-like-radio" class="pig-radio-like overlook-pig2" type="radio" name="overlook-pig2" hidden>
+    <input id="pig2-super-like-radio" class="pig-radio-super-like overlook-pig2" type="radio" name="overlook-pig2" hidden>
+    <input id="pig2-dislike-radio" class="pig-radio-dislike overlook-pig2" type="radio" name="overlook-pig2" hidden>
+
+    <section id="pig2-card" class="pig-card pig2-card">
+      <h7 class="wrapper"></h7>
       <article class="pig-photo-and-description">
+        <h7 class="wrapper"></h7>
         <section class="pig-description">
-          <h4 class="pig-name"> Моника </h4>
-          <p class="pig-age"> 7 месяцев </p>
+          <h7 class="pig-name"> Афина </h7>
+          <p class="pig-age"> 2 года </p>
         </section>
         <img src="./pics/2.jpg" class="pig-pic pig2-pic">
       </article>
-      <section class="buttons">
-        <label class="like pig2-like" for="pig2-like"></label>
-        <label class="super-like pig2-super-like" for="pig2-super-like"></label>
-        <label class="dislike pig2-dislike" for="pig2-dislike"></label>
-      </section>
+      <div class="buttons">
+        <label class="dislike pig2-dislike" for="pig2-dislike-radio"></label> 
+        <label class="super-like pig2-super-like" for="pig2-super-like-radio"></label>
+        <label class="like pig2-like" for="pig2-like-radio"></label>
+      </div>
     </section>
-  
-    <input id="pig3-like" class="pig-radio-like overlook-pig3" type="radio" name="overlook-pig3" hidden>
-    <input id="pig3-super-like" class="pig-radio-super-like overlook-pig3" type="radio" name="overlook-pig3" hidden>
-    <input id="pig3-dislike" class="pig-radio-dislike overlook-pig3" type="radio" name="overlook-pig3" hidden>
 
-    <section class="pig-card pig3-card">
+
+    <input id="pig3-like-radio" class="pig-radio-like overlook-pig3" type="radio" name="overlook-pig3" hidden>
+    <input id="pig3-super-like-radio" class="pig-radio-super-like overlook-pig3" type="radio" name="overlook-pig3" hidden>
+    <input id="pig3-dislike-radio" class="pig-radio-dislike overlook-pig3" type="radio" name="overlook-pig3" hidden>
+
+    <section id="pig3-card" class="pig-card pig3-card">
+      <h7 class="wrapper"></h7>
       <article class="pig-photo-and-description">
+        <h7 class="wrapper"></h7>
         <section class="pig-description">
-          <h4 class="pig-name"> Антон </h4>
-          <p class="pig-age"> 13 месяцев </p>
+          <h7 class="pig-name"> Антон </h7>
+          <p class="pig-age"> 9 месяцев </p>
         </section>
-        <img src="./pics/3.jpg" class="pig-pic pig2-pic">
+        <img src="./pics/3.jpg" class="pig-pic pig3-pic">
       </article>
-      <section class="buttons">
-        <label class="like pig3-like" for="pig3-like"></label>
-        <label class="super-like pig3-super-like" for="pig3-super-like"></label>
-        <label class="dislike pig3-dislike" for="pig3-dislike"></label>
-      </section>
+      <div class="buttons">
+        <label class="dislike pig3-dislike" for="pig3-dislike-radio"></label> 
+        <label class="super-like pig3-super-like" for="pig3-super-like-radio"></label>
+        <label class="like pig3-like" for="pig3-like-radio"></label>
+      </div>
     </section>
 
+
+    <input id="pig4-like-radio" class="pig-radio-like overlook-pig4" type="radio" name="overlook-pig4" hidden>
+    <input id="pig4-super-like-radio" class="pig-radio-super-like overlook-pig4" type="radio" name="overlook-pig4" hidden>
+    <input id="pig4-dislike-radio" class="pig-radio-dislike overlook-pig4" type="radio" name="overlook-pig4" hidden>
+
+    <section id="pig4-card" class="pig-card pig4-card">
+      <h7 class="wrapper"></h7>
+      <article class="pig-photo-and-description">
+        <h7 class="wrapper"></h7>
+        <section class="pig-description">
+          <h7 class="pig-name"> Виолетта </h7>
+          <p class="pig-age"> 15 месяцев </p>
+        </section>
+        <img src="./pics/4.jpg" class="pig-pic pig4-pic">
+      </article>
+      <div class="buttons">
+        <label class="dislike pig4-dislike" for="pig4-dislike-radio"></label> 
+        <label class="super-like pig4-super-like" for="pig4-super-like-radio"></label>
+        <label class="like pig4-like" for="pig4-like-radio"></label>
+      </div>
+    </section>
+
+
+    <input id="pig5-like-radio" class="pig-radio-like overlook-pig5" type="radio" name="overlook-pig5" hidden>
+    <input id="pig5-super-like-radio" class="pig-radio-super-like overlook-pig5" type="radio" name="overlook-pig5" hidden>
+    <input id="pig5-dislike-radio" class="pig-radio-dislike overlook-pig5" type="radio" name="overlook-pig5" hidden>
+
+    <section id="pig5-card" class="pig-card pig5-card">
+      <h7 class="wrapper"></h7>
+      <article class="pig-photo-and-description">
+        <h7 class="wrapper"></h7>
+        <section class="pig-description">
+          <h7 class="pig-name"> Жаннет </h7>
+          <p class="pig-age"> 2 года </p>
+        </section>
+        <img src="./pics/5.jpg" class="pig-pic pig5-pic">
+      </article>
+      <div class="buttons">
+        <label class="dislike pig5-dislike" for="pig5-dislike-radio"></label> 
+        <label class="super-like pig5-super-like" for="pig5-super-like-radio"></label>
+        <label class="like pig5-like" for="pig5-like-radio"></label>
+      </div>
+    </section>
+
+
+    <input id="pig6-like-radio" class="pig-radio-like overlook-pig6" type="radio" name="overlook-pig6" hidden>
+    <input id="pig6-super-like-radio" class="pig-radio-super-like overlook-pig6" type="radio" name="overlook-pig6" hidden>
+    <input id="pig6-dislike-radio" class="pig-radio-dislike overlook-pig6" type="radio" name="overlook-pig6" hidden>
+
+    <section id="pig6-card" class="pig-card pig6-card">
+      <h7 class="wrapper"></h7>
+      <article class="pig-photo-and-description">
+        <h7 class="wrapper"></h7>
+        <section class="pig-description">
+          <h7 class="pig-name"> Иви </h7>
+          <p class="pig-age"> 2 с половиной года </p>
+        </section>
+        <img src="./pics/6.jpg" class="pig-pic pig6-pic">
+      </article>
+      <div class="buttons">
+        <label class="dislike pig6-dislike" for="pig6-dislike-radio"></label> 
+        <label class="super-like pig6-super-like" for="pig6-super-like-radio"></label>
+        <label class="like pig6-like" for="pig6-like-radio"></label>
+      </div>
+    </section>
+
+
+    <input id="pig7-like-radio" class="pig-radio-like overlook-pig7" type="radio" name="overlook-pig7" hidden>
+    <input id="pig7-super-like-radio" class="pig-radio-super-like overlook-pig7" type="radio" name="overlook-pig7" hidden>
+    <input id="pig7-dislike-radio" class="pig-radio-dislike overlook-pig7" type="radio" name="overlook-pig7" hidden>
+
+    <section id="pig7-card" class="pig-card pig7-card">
+      <h7 class="wrapper"></h7>
+      <article class="pig-photo-and-description">
+        <h7 class="wrapper"></h7>
+        <section class="pig-description">
+          <h7 class="pig-name"> Лила </h7>
+          <p class="pig-age"> 1 год </p>
+        </section>
+        <img src="./pics/7.jpg" class="pig-pic pig7-pic">
+      </article>
+      <div class="buttons">
+        <label class="dislike pig7-dislike" for="pig7-dislike-radio"></label> 
+        <label class="super-like pig7-super-like" for="pig7-super-like-radio"></label>
+        <label class="like pig7-like" for="pig7-like-radio"></label>
+      </div>
+    </section>
+
+
+    <input id="pig8-like-radio" class="pig-radio-like overlook-pig8" type="radio" name="overlook-pig8" hidden>
+    <input id="pig8-super-like-radio" class="pig-radio-super-like overlook-pig8" type="radio" name="overlook-pig8" hidden>
+    <input id="pig8-dislike-radio" class="pig-radio-dislike overlook-pig8" type="radio" name="overlook-pig8" hidden>
+
+    <section id="pig8-card" class="pig-card pig8-card">
+      <h8 class="wrapper"></h8>
+      <article class="pig-photo-and-description">
+        <h8 class="wrapper"></h8>
+        <section class="pig-description">
+          <h8 class="pig-name"> Эльза </h8>
+          <p class="pig-age"> 8 год </p>
+        </section>
+        <img src="./pics/8.jpg" class="pig-pic pig8-pic">
+      </article>
+      <div class="buttons">
+        <label class="dislike pig8-dislike" for="pig8-dislike-radio"></label> 
+        <label class="super-like pig8-super-like" for="pig8-super-like-radio"></label>
+        <label class="like pig8-like" for="pig8-like-radio"></label>
+      </div>
+    </section>
+    
     <section class="end-card">
-      <p>
+      <h7 class="end-card-title">
         The end.
-      </p>
+      </h7>
     </section>
   </main>
 
