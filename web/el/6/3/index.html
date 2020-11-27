@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        html, body {
-            height: 100%;
-            padding: 0;
-            margin: 0;
-        }
-        .rect {
-            position: absolute;
-            border: thick 1px black;
-        }
-    </style>
-    <script>
-
-        function createRect(x, y, width, height, color) {
+<html>
+	<head>
+		<title>Events</title>
+		<style>
+			html, body {
+				height: 100%;
+				padding: 0;
+				margin: 0;
+			}
+			.rect {
+				position: absolute;
+				border: thick 1px black;
+			}
+		</style>
+		<script type="text/javascript">
+			function createRect(x, y, width, height, color) {
 				var div = document.createElement("div");
 				div.className = "rect";
 				div.style.width = width + "px";
@@ -25,48 +22,82 @@
 				div.style.top = y + "px";
 				div.style.left = x + "px";
 				div.style.background = color;
-
-                // div.oncontextmenu = removeRect
-
+				
 				document.body.appendChild(div);
+				
+				return div;
 			}
-
-        function generateColor() {
-            return `rgba(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
-        }
 			
 
-        function move(rect, dx, dy) {
-            var y = rect.style.top.substring(0, rect.style.top.length - 2) * 1;
-            rect.style.top = y + dy + "px";
-        }
+			function move(rect, dx, dy) {
+				console.log(window.innerHeight)
+				let maxX = (window.innerWidth - parseInt(rect.style.width, 10));
+            	let maxY = (window.innerHeight - parseInt(rect.style.height, 10));
+				
+				var y =  parseInt(rect.style.top, 10); 
+				if(y === 0) {
+					rect.moveUp = false;
+					rect.moveDown = true;
+				} else if (y === maxY - 1) {
+					rect.moveDown = false;
+					rect.moveUp = true;
+				}
+				rect.style.top = y + dy + "px";
+				
 
-        function init() {
-            var rect = createRect(100,100, 50, 50, generateColor())
-            var animationEnabled;   
+				var x = parseInt(rect.style.left, 10);
+				if(x === 0) {
+					rect.moveLeft = false;
+					rect.moveRight = true;
+				} else if (x === maxX - 1) {
+					rect.moveRight = false;
+					rect.moveLeft = true;
+				}
+				rect.style.left = x + dx + "px";
+				
+			}
+			
+			function init() {
+				let r = Math.random
+				let rects = [];
+				for(let i = 0; i < 20; i++) {
+					let height = r() * window.innerHeight;
+					let width = r() * window.innerWidth;
+					let x = (window.innerWidth - width) * r();
+					let y = (window.innerHeight - height) * r();
+					let rect = createRect(x, y, width, height, `rgba(${r()*255}, ${r*255}, ${r*255})`);
+					rect.moveDown = true;
+					rect.moveLeft = true;
+					rects.push(rect);
+				}
+				var animationEnabled = false;
+			
+				document.body.onkeydown = function (event) {
+					if (event.which == 32) {
+						animationEnabled = true;
+					}
+				}
+				
+				document.body.onkeyup = function (event) {
+					if (event.which == 32) {
+						animationEnabled = false;
+					}
+				}
+				
 
-            document.body.onkeydown = function (event) {
-                console.log(event)
-                if(event.keyCode === 32) {
-                    animationEnabled = true;
-                }
-            }
-
-            document.body.onkeyup = function (event) {
-                console.log('key up');
-                if(event.keyCode === 32) {
-                    animationEnabled = false;
-                }
-            }
-
-            setInterval(function () {
-                move(rect, 1, 1);
-            }, 100); 
-
-        }
-    </script>
-</head>
-<body onload="init()"> 
-    
-</body>
+				setInterval(function () {
+					for(let rect of rects) {
+						let dx = rect.moveLeft ? -1 : 1;
+						let dy = rect.moveUp ? -1 : 1;
+						rect.style.background = `rgba(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`
+						if (animationEnabled) {
+							move(rect, dx, dy);
+						}
+					}
+				}, 5);
+			}
+		</script>
+	</head>
+	<body onload="init()">
+	</body>
 </html>
