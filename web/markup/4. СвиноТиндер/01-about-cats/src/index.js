@@ -11,12 +11,12 @@ function listenSwipes(element, i){
   element.addEventListener('touchend', function(event){
       let dx = event.changedTouches[0].pageX - startX;
       let dy = event.changedTouches[0].pageY - startY;
-      if (Math.abs(dx) > 100 && Math.abs(dy) < 100){
+      if (Math.abs(dx) > 50 && Math.abs(dy) < 50){
         console.log(document.querySelector(`.pig${i}-like`))
           if(dx > 0) document.querySelector(`.pig${i}-like`).dispatchEvent(new MouseEvent('click')); // Нажатие на лейбл лайка / свайп вправо
           else document.querySelector(`.pig${i}-dislike`).dispatchEvent(new MouseEvent('click')); // Нажатие на лейбл дизлайка / свайп влево
       }
-      else if (Math.abs(dy) > 100 && Math.abs(dx) < 100){
+      else if (Math.abs(dy) > 50 && Math.abs(dx) < 50){
           if(dy < 0) document.querySelector(`.pig${i}-super-like`).dispatchEvent(new MouseEvent('click')); // супер-лайк / свайп вверх
       }
   })

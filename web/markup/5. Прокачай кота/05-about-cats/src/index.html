@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Прокачай кота</title>
+    <link href="./index.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet"/>
+  </head>
+  <body>
+    <main class="main"> 
+      <article class="cat-form-window main__cat-form-window">
+        <button class="form-button cat-form-window__close-button">x</button>
+        <section class="cat-form-window__content">
+          <h1 class="cat-form-window__title">Прокачай кота!</h1>
+          <p class="cat-form-window__desc">
+            Подпишись на расылку нашего тренера и получи индивидуально подобранную программу тренировок для своего кота
+          </p>
+          <form action="" class="cat-form" method="post">
+            <div class="cat-form__item">
+              <label class="cat-form__age-label" for="age">Возраст кота: </label>
+              <input type="number" min="0" max="20" class="cat-form__age-selector" id="age" name="age" />
+              <span class="cat-form__text">лет</span>
+              <label class="cat-form__weight-label" for="weight-input"> и вес:</label>
+              <input class="cat-form__weight-input" id="weight-input" step="0.1" type="number" min="0.1"/>
+              <span class="cat-form__text">кг</span>
+            </div>
+            <div class="cat-form__item">
+              <input class="cat-form__program-input" id="pr1" name="program" type="radio"/>
+              <label class="cat-form__program-label" for="pr1">Набор массы</label>
+              <input class="cat-form__program-input" id="pr2" name="program" type="radio"/>
+              <label class="cat-form__program-label" for="pr2">Похудение</label>
+              <input class="cat-form__program-input" id="pr3" name="program" type="radio"/>
+              <label class="cat-form__program-label" for="pr3">Не знаю</label>
+            </div>
+            <div class="cat-form__item">
+              <input class="cat-form__email-input" placeholder="Email (ваш)" type="email"/>
+            </div>
+            <div class="spam-checkbox cat-form__item">
+              <input class="spam-checkbox__spam-input" id="spam" type="checkbox"/>
+              <label class="spam-checkbox__spam-label" for="spam">Хочу спам</label>
+              <div class="spam-checkbox__custom-spam-input"></div>
+            </div>
+            <div class="cat-form__item">
+              <button class="form-button cat-form-window__submit-button" type="submit">Подписаться</button>
+            </div>
+          </form>
+        </section>
+        <aside class="cat-form-window__right-side">
+          <div class="cat-form-window__right-side-line"></div>
+          <img class="cat-form-window__right-side-photo" src="img/cat.jpg" alt="Тучный белый кот сидит" />
+        </aside>
+      </article>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,227 @@
+body {
+  color: rgb(59, 59, 59);
+  font-family: 'Roboto', sans-serif;
+}
+
+.cat-form-window {
+  display: grid;
+  grid-gap: 50px;
+  grid-template: 'form right-side' 1fr
+                  / 2fr 1fr;
+  width: 800px;
+  box-shadow: 0 0 5px 0 rgb(105, 102, 102);
+}
+
+.main__cat-form-window {
+  position: relative;
+  margin: 5% auto 0 auto;
+  box-sizing: border-box;
+  padding: 0 20px;
+  border: 1px solid rgb(155, 151, 151);
+  border-radius: 10px;
+}
+
+.cat-form-window__content {
+  padding: 30px 20px;
+}
+
+.cat-form-window__title {
+  color: rgb(66, 66, 66);
+  font-size: 38px;
+  margin-bottom: 0;
+}
+
+.cat-form-window__desc {
+  margin: 15px 0 30px 0;
+  color: rgb(119, 119, 119);
+  font-size: 20px;
+}
+
+.cat-form {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.cat-form__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 5px 0;
+  font-size: 16px;
+}
+
+.cat-form__program-input {
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+}
+
+.cat-form__age-selector,
+.cat-form__weight-input,
+.cat-form__program-label,
+.cat-form__email-input {
+  height: 100%;
+  padding-left: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #EBF0F5;
+  color: #555;
+  font-family: 'Roboto', sans-serif;
+  outline: 0;
+}
+
+.cat-form__age-selector {
+  width: 25%;
+}
+
+.cat-form__weight-input {
+  width: 25%;
+}
+
+.cat-form__email-input {
+  width: 100%;
+}
+
+.cat-form__program-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 32%;
+  padding-left: 0;
+}
+
+.spam-checkbox__spam-input {
+  z-index: 1;
+  width: 25px;
+  height: 25px;
+  opacity: 0;
+}
+
+.spam-checkbox__custom-spam-input {
+  position: absolute;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  background-color: #EBF0F5;
+}
+
+.cat-form__age-selector:hover,
+.cat-form__weight-input:hover,
+.cat-form__email-input:hover,
+.spam-checkbox__custom-spam-input:hover,
+.spam-checkbox__spam-input:hover,
+.cat-form__program-label:hover {
+  background: #D8DDE3;
+  cursor: pointer;
+}
+
+.spam-checkbox {
+  position: relative;
+  justify-content: flex-start;
+}
+
+.spam-checkbox__spam-label {
+  margin-left: 10px;
+}
+
+.spam-checkbox__spam-label:hover ~ .spam-checkbox__custom-spam-input {
+  background: #D8DDE3;
+}
+
+.spam-checkbox__spam-input:hover ~ .spam-checkbox__custom-spam-input,
+.spam-checkbox__spam-input:focus ~ .spam-checkbox__custom-spam-input {
+  background: #D8DDE3;
+}
+
+.spam-checkbox__spam-input:checked ~ .spam-checkbox__custom-spam-input {
+  background-color:#FFCC00;
+}
+
+.spam-checkbox__custom-spam-input:after {
+  display: none;
+
+  width: 5px;
+  height: 10px;
+  position: absolute;
+  top: 5px;
+  left: 9px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  content: '';
+}
+
+.spam-checkbox__spam-input:checked ~ .spam-checkbox__custom-spam-input:after {
+  display: block;
+}
+
+.form-button {
+  border: none;
+  border-radius: 5px;
+
+  color: rgb(66, 66, 66);
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: large;
+}
+
+.cat-form-window__close-button {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 0;
+  background: white;
+  font-weight: 200;
+  font-size: 30px;
+}
+
+.cat-form-window__close-button:hover {
+  cursor: pointer;
+}
+
+.cat-form-window__submit-button {
+  width: 100%;
+  padding: 10px 0;
+  background: #FFCC00;
+  box-shadow: 0 0 5px 0 rgba(183, 183, 183, 0.5);
+}
+
+.cat-form-window__submit-button:hover,
+.cat-form-window__submit-button:focus {
+  background: #FFCC00;
+  cursor: pointer;
+}
+
+.cat-form__age-selector:focus,
+.cat-form__weight-input:focus,
+.cat-form__email-input:focus {
+  background-color: #D8DDE3;
+}
+
+.cat-form__program-input:checked + .cat-form__program-label {
+  background: #FFCC00;
+}
+
+.cat-form-window__right-side {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cat-form-window__right-side-line {
+  width: 80%;
+  height: 100%;
+  background: #FFCC00;
+}
+
+.cat-form-window__right-side-photo {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  padding: 10px 0;
+  background: white;
+  width: 100%;
+}
+

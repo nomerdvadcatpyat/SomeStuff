@@ -60,7 +60,7 @@
 			function init() {
 				let r = Math.random
 				let rects = [];
-				for(let i = 0; i < 20; i++) {
+				for(let i = 0; i < 50; i++) {
 					let height = r() * window.innerHeight;
 					let width = r() * window.innerWidth;
 					let x = (window.innerWidth - width) * r();
@@ -90,11 +90,9 @@
 						let dx = rect.moveLeft ? -1 : 1;
 						let dy = rect.moveUp ? -1 : 1;
 						rect.style.background = `rgba(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`
-						if (animationEnabled) {
-							move(rect, dx, dy);
-						}
+						if (animationEnabled) move(rect, dx, dy);
 					}
-				}, 5);
+				}, 1);
 			}
 		</script>
 	</head>
