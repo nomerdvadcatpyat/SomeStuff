@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+
+body {
+    /* min-height: 100%; */
+    /* margin: 0; */
+    display: grid;
+    grid-template:  'header' min-content
+                    'content' min-content
+                    / 1fr;
+    font-size: 18px;
+    font-family: 'Play', sans-serif;
+    text-align: left;
+}
+
+.header {
+    grid-area: header;
+    display: grid;
+    grid-template:  'settings' 1fr
+                    'title' 2fr
+                    / 1fr;
+    /* background-color: rgb(158, 240, 240); */
+}
+
+.header__title {
+    text-align: center;
+    margin: 3% 0 0 0;
+    font-size: 50px;
+}
+
+.content {
+    /* background-color: rgb(185, 136, 231); */
+    grid-area: content;
+    display: grid;
+    grid-template:  'side-article first-article' min-content
+                    'side-article second-article' min-content
+                    'side-article third-article' min-content
+                    / 1fr 4fr;
+}
+
+.content__side-article, .content__first-article, .content__second-article, .content__third-article {
+    padding: 25px 10px 0 10px;
+    margin: 5px;
+    border: 1px solid black;
+    position: relative;
+}
+
+
+/* side-article */
+.content__side-article {
+    grid-area: side-article;
+    /* background-color: coral; */
+}
+
+.side-article__header {
+    margin: 0;
+    position: absolute;
+    top: -15px;
+    left: 30%;
+    background-color: white;
+}
+
+.side-article-subarticle__pic {
+    width: 100%;
+}
+
+.side-article-subarticle__header {
+    text-align: center;
+    
+}
+
+.side-article-subarticle__text {
+    margin-bottom: 10%;
+}
+
+
+
+/* first-article */
+.first-article {
+    column-count: 4;
+}
+
+.content__first-article {
+    padding-top: 20px;
+    grid-area: first-article;
+    /* background-color: cornflowerblue; */
+}
+
+.first-article__header {
+    margin: 0;
+    position: absolute;
+    top: -15px;
+    left: 35%;
+    background-color: white;
+}
+
+.first-article__pic {
+    width: 100%;
+}
+
+
+/* second-article */
+.second-article {
+    display: grid;
+    grid-template: 'second-article__subarticle1 second-article__subarticle2 second-article__subarticle3' 1fr
+                    / 3fr 6fr 2fr;
+    grid-gap: 10px;
+}
+
+.content__second-article {
+    grid-area: second-article;
+    border: 0px;
+    /* background-color: rgb(138, 187, 47); */
+}
+
+.second-article-title {
+    text-align: center;
+    margin: 0 0 2% 0;
+}
+
+.second-article__anec-pic {
+    width: 100%;
+}
+
+.second-article__text1 {
+    margin: 0 0 10% 0;
+}
+
+.second-article__subarticle2 {
+    padding: 0 5px 15px 5px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    column-count: 3;
+}
+
+.second-article__title2 {
+    column-span: all;
+}
+
+
+/* third-article */
+.third-article {
+    column-count: 3;
+}
+
+.content__third-article {
+    grid-area: third-article;
+    /* background-color: darkgoldenrod; */
+}
+
+.third-article__header {
+    margin: 0;
+    position: absolute;
+    top: -15px;
+    left: 35%;
+    background-color: white;
+}
+
+.third-article__text {
+    margin: 0 0 5% 0;
+}
+
+.third-article__pic {
+    width: 100%;
+}
+
+
+/* Settings */
+
+.radio-set {
+    display: none;
+}
+
+.settings {
+    font-size: 15px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    border-bottom: 1px solid black;
+}
+
+.settings__item1, .settings__item2, .settings__item3 {
+    /* width: 15%; */
+    margin-top: 10px;
+    display: grid;
+    grid-template:  'title' 1fr
+                    'settings' 1fr
+                    / 1fr;
+}
+
+.settings__header {
+    margin-top: 0;
+    text-align: center;
+}
+
+.labels {
+    grid-area: settings;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.label-set {
+    margin: 0 20px;
+}
+
+.label-set-label-small:hover, .label-set-label-normal:hover, .label-set-label-big:hover, 
+.label-set-font-sanserif:hover, .label-set-font-serif:hover, .label-set-font-cursive:hover,
+.label-set-color-white:hover, .label-set-color-black:hover {
+    cursor: pointer;
+}
+
+.radio-set-size-small:checked ~ .header .label-set-label-small,
+.radio-set-size-normal:checked ~ .header .label-set-label-normal,
+.radio-set-size-big:checked ~ .header .label-set-label-big,
+.radio-set-font-sanserif:checked ~ .header .label-set-font-sanserif, 
+.radio-set-font-serif:checked ~ .header .label-set-font-serif, 
+.radio-set-font-cursive:checked ~ .header .label-set-font-cursive,
+.radio-set-color-white:checked ~ .header .label-set-color-white, 
+.radio-set-color-black:checked ~ .header .label-set-color-black{
+    font-weight: bolder;
+}
+
+.radio-set-size-small:checked ~ .content {
+    font-size: 14px;
+}
+
+.radio-set-size-small:checked ~ .header .header__title {
+    font-size: 30px;
+}
+
+.radio-set-size-big:checked ~ .content {
+    font-size: 32px;
+}
+
+.radio-set-size-big:checked ~ .header .header__title {
+    font-size: 60px;
+}
+
+.radio-set-size-big:checked ~ .content .article-header {
+    top: -30px;
+}
+
+.radio-set-font-sanserif:checked ~ .content {
+    font-family: 'Play', sans-serif;
+}
+
+.radio-set-font-serif:checked ~ .content,
+.radio-set-font-serif:checked ~ .header .header__title {
+    font-family: 'Playfair Display SC', serif;
+}
+
+
+.radio-set-font-cursive:checked ~ .content {
+    font-family: 'Bad Script', cursive;
+}
+
+.radio-set-font-cursive:checked ~ .header .header__title {
+    font-family: 'Bad Script', cursive;
+}
+
+.radio-set-size-normal:checked ~ .radio-set-font-cursive:checked ~ .content .article-header {
+    top: -30px;
+}
+
+.radio-set-size-small:checked ~ .radio-set-font-cursive:checked ~ .content .article-header {
+    top: -20px;
+}
+
+.radio-set-font-cursive:checked ~ .content .article-header {
+    top: -50px;
+}
+
+.radio-set-color-black:checked ~ .content,
+.radio-set-color-black:checked ~ .header,
+.radio-set-color-black:checked ~ .content .article-header {
+    background-color: black;
+    color: white;
+}
+
+.radio-set-color-black:checked ~ .header .settings,
+.radio-set-color-black:checked ~ .content .content__side-article,
+.radio-set-color-black:checked ~ .content .content__first-article,
+.radio-set-color-black:checked ~ .content .content__second-article,
+.radio-set-color-black:checked ~ .content .content__third-article {
+    border: 1px solid white;
+}
+
+.radio-set-color-black:checked ~ .content  .second-article__subarticle2 {
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+}
+
+
+.text:first-letter {
+    color: red;
+    font-weight: bolder;
+}
+
+.citata {
+    font-weight: bolder;
+}
+
+.hidden-for-validation {
+    display: none;
+}

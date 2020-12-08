@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Газета</title>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <input class="radio-set radio-set-size radio-set-size-small" type="radio" id="set_size_small" name="set-size" >
+    <input class="radio-set radio-set-size radio-set-size-normal" type="radio" id="set_size_normal" name="set-size" checked>
+    <input class="radio-set radio-set-size radio-set-size-big" type="radio" id="set_size_big" name="set-size" >
+
+    <input class="radio-set radio-set-font radio-set-font-sanserif" type="radio" id="set_font_sanserif" name="set-font" checked>
+    <input class="radio-set radio-set-font radio-set-font-serif" type="radio" id="set_font_serif" name="set-font">
+    <input class="radio-set radio-set-font radio-set-font-cursive" type="radio" id="set_font_cursive" name="set-font">
+
+    <input class="radio-set radio-set-color radio-set-color-white" type="radio" id="set_color_light" name="set-color" checked>
+    <input class="radio-set radio-set-color radio-set-color-black" type="radio" id="set_color_dark" name="set-color" >
+
+    <header class="header">  
+      <section class="settings">
+        <h6 class="hidden-for-validation"> </h6>
+        <section class="settings__item1">
+          <h3 class="settings__header">Размер шрифта</h3>
+          <div class="labels">
+            <label class="label-set label-set-label label-set-label-small" for="set_size_small">Маленький</label>
+            <label class="label-set label-set-label label-set-label-normal" for="set_size_normal">Обычный</label>
+            <label class="label-set label-set-label label-set-label-big" for="set_size_big">Большой</label>
+          </div>
+        </section>
+        <section class="settings__item2">
+          <h3 class="settings__header">Начертание шрифта</h3>
+          <div class="labels">
+            <label class="label-set label-set-font label-set-font-sanserif" for="set_font_sanserif">Без засечек</label>
+            <label class="label-set label-set-font label-set-font-serif" for="set_font_serif">С засечками</label>
+            <label class="label-set label-set-font label-set-font-cursive" for="set_font_cursive">Рукописный</label>
+          </div>
+        </section>
+        <section class="settings__item3">
+          <h3 class="settings__header">Цветовая схема</h3>
+          <div class="labels">
+            <label class="label-set label-set-color label-set-color-white" for="set_color_light">Светлая</label>
+            <label class="label-set label-set-color label-set-color-black" for="set_color_dark">Темная</label>
+          </div>
+        </section>
+      </section>
+
+      <h1 class="header__title">Я не знаю, что сюда писать.</h1>
+    </header>
+
+    <main class="content">
+
+      <article class="side-article content__side-article">
+        <h2 class="article-header side-article__header"> Side </h2>
+        <section class="side-article-subarticle side-article__subtitle1">
+          <h3 class="side-article-subarticle__header"> Что-то </h3>
+          <img class="side-article-subarticle__pic" src="./img/side-title1.jpg" alt="Черно-белый старый город">
+          <p class="text side-article-subarticle__text">
+            Ду&shy;ша моя оза&shy;ре&shy;на не&shy;зем&shy;ной ра&shy;достью, как эти чу&shy;дес&shy;ные ве&shy;сен&shy;ние ут&shy;ра, ко&shy;то&shy;ры&shy;ми я на&shy;слаж&shy;да&shy;юсь от все&shy;го серд&shy;ца. Я со&shy;всем один и бла&shy;женст&shy;вую в здеш&shy;нем краю, слов&shy;но со&shy;здан&shy;ном для та&shy;ких, как я. Я так счаст&shy;лив, мой друг, так упо&shy;ен ощу&shy;ще&shy;ни&shy;ем по&shy;коя, что ис&shy;кус&shy;ст&shy;во мое стра&shy;да&shy;ет от это&shy;го.
+            Ни од&shy;но&shy;го штри&shy;ха не мог бы я сде&shy;лать, а ни&shy;ког&shy;да не был та&shy;ким боль&shy;шим ху&shy;дож&shy;ни&shy;ком, как в эти ми&shy;ну&shy;ты.
+          </p>
+        </section>
+
+        <section class="side-article-subarticle side-article__subtitle2">
+          <h3 class="side-article-subarticle__header"> Что-то другое </h3>
+          <img class="side-article-subarticle__pic" src="./img/side-title2.jpg" alt="Черно-белый старый город">
+          <p class="text side-article-subarticle__text">
+            Ког&shy;да от ми&shy;лой мо&shy;ей до&shy;ли&shy;ны под&shy;ни&shy;ма&shy;ет&shy;ся пар и пол&shy;днев&shy;ное солн&shy;це сто&shy;ит над не&shy;про&shy;ни&shy;ца&shy;е&shy;мой ча&shy;щей тем&shy;но&shy;го ле&shy;са и лишь ред&shy;кий луч про&shy;скаль&shy;зы&shy;ва&shy;ет в его свя&shy;тая свя&shy;тых, а я ле&shy;жу в вы&shy;со&shy;кой тра&shy;ве у быст&shy;ро&shy;го ручья и, при&shy;льнув к зем&shy;ле, ви&shy;жу ты&shy;ся&shy;чи все&shy;воз&shy;мож&shy;ных бы&shy;ли&shy;нок и чувст&shy;вую, как бли&shy;зок мо&shy;е&shy;му серд&shy;цу кро&shy;шеч&shy;ный ми&shy;рок, что сну&shy;ет меж&shy;ду сте&shy;бель&shy;ка&shy;ми, на&shy;блю&shy;даю эти не&shy;ис&shy;чис&shy;ли&shy;мые, не&shy;по&shy;сти&shy;жи&shy;мые раз&shy;но&shy;вид&shy;нос&shy;ти чер&shy;вя&shy;ков и мо&shy;шек и чувст&shy;вую бли&shy;зость все&shy;мо&shy;гу&shy;ще&shy;го, со&shy;здав&shy;ше&shy;го нас по сво&shy;е&shy;му по&shy;до&shy;бию, ве&shy;я&shy;ние все&shy;лю&shy;бя&shy;ще&shy;го, су&shy;див&shy;ше&shy;го нам па&shy;рить в веч&shy;ном бла&shy;женст&shy;ве, ког&shy;да взор мой ту&shy;ма&shy;нит&shy;ся и все во&shy;круг ме&shy;ня и не&shy;бо на&shy;до мной за&shy;пе&shy;чат&shy;ле&shy;ны в мо&shy;ей ду&shy;ше, точ&shy;но об&shy;раз воз&shy;люб&shy;лен&shy;ной, - тог&shy;да, до&shy;ро&shy;гой друг, ме&shy;ня час&shy;то то&shy;мит мысль.
+          </p>
+        </section>
+
+        <section class="side-article-subarticle side-article__subtitle2">
+          <h3 class="side-article-subarticle__header"> Еще что-то другое </h3>
+          <img class="side-article-subarticle__pic" src="./img/side-title3.jpg" alt="Черно-белый старый город">
+          <p class="text side-article-subarticle__text">
+            Да&shy;ле&shy;ко-да&shy;ле&shy;ко за сло&shy;вес&shy;ны&shy;ми го&shy;ра&shy;ми в стра&shy;не глас&shy;ных и со&shy;глас&shy;ных жи&shy;вут рыб&shy;ные тек&shy;с&shy;ты. Вда&shy;ли от всех жи&shy;вут они в бук&shy;вен&shy;ных до&shy;мах на бе&shy;ре&shy;гу Се&shy;ман&shy;ти&shy;ка боль&shy;шо&shy;го язы&shy;ко&shy;во&shy;го оке&shy;а&shy;на.
+            Ма&shy;лень&shy;кий ру&shy;че&shy;ек Даль жур&shy;чит по всей стра&shy;не и обес&shy;пе&shy;чи&shy;ва&shy;ет ее все&shy;ми не&shy;об&shy;хо&shy;ди&shy;мы&shy;ми пра&shy;ви&shy;ла&shy;ми. Эта па&shy;ра&shy;диг&shy;ма&shy;ти&shy;чес&shy;кая стра&shy;на, в ко&shy;то&shy;рой жа&shy;рен&shy;ные чле&shy;ны пред&shy;ло&shy;же&shy;ния за&shy;ле&shy;та&shy;ют пря&shy;мо в рот.
+            Да&shy;же все&shy;мо&shy;гу&shy;щая пунк&shy;ту&shy;а&shy;ция не име&shy;ет влас&shy;ти над рыб&shy;ны&shy;ми текс&shy;та&shy;ми, ве&shy;ду&shy;щи&shy;ми без&shy;ор&shy;фо&shy;гра&shy;фич&shy;ный об&shy;раз жиз&shy;ни. Од&shy;наж&shy;ды од&shy;на ма&shy;лень&shy;кая строч&shy;ка рыб&shy;но&shy;го текс&shy;та по име&shy;ни Lorem ipsum ре&shy;ши&shy;ла вый&shy;ти в боль&shy;шой мир грам&shy;ма&shy;ти&shy;ки.
+            Ве&shy;ли&shy;кий Ок&shy;с&shy;мокс пре&shy;дуп&shy;реж&shy;дал ее о злых за&shy;пя&shy;тых, ди&shy;ких зна&shy;ках во&shy;про&shy;са и ко&shy;вар&shy;ных точ&shy;ках с за&shy;пя&shy;той, но текст не дал сбить се&shy;бя с тол&shy;ку. Он со&shy;брал семь сво&shy;их за&shy;глав&shy;ных букв, под&shy;по&shy;я&shy;сал ини&shy;ци&shy;ал за по&shy;яс и пус&shy;тил&shy;ся в до&shy;ро&shy;гу.
+          </p>
+        </section>
+      </article>
+
+      <article class="first-article content__first-article">
+        <h2 class="article-header first-article__header"> Какой-то большой текст </h2>
+        <img class="first-article__pic" src="./img/first-title-pic.jpg" alt="Черно-белый старый город">
+        <p class="text first-article__text">
+          Про&shy;снув&shy;шись од&shy;наж&shy;ды ут&shy;ром пос&shy;ле бес&shy;по&shy;кой&shy;но&shy;го сна, Гре&shy;гор Зам&shy;за об&shy;на&shy;ру&shy;жил, что он у се&shy;бя в по&shy;сте&shy;ли пре&shy;вра&shy;тил&shy;ся в страш&shy;ное на&shy;се&shy;ко&shy;мое. Ле&shy;жа на пан&shy;цир&shy;нотвер&shy;дой спи&shy;не, он ви&shy;дел, сто&shy;и&shy;ло ему при&shy;под&shy;нять го&shy;ло&shy;ву, свой ко&shy;рич&shy;не&shy;вый, вы&shy;пук&shy;лый, раз&shy;де&shy;лен&shy;ный ду&shy;го&shy;об&shy;раз&shy;ны&shy;ми че&shy;шуй&shy;ка&shy;ми жи&shy;вот, на вер&shy;хуш&shy;ке ко&shy;то&shy;ро&shy;го еле дер&shy;жа&shy;лось го&shy;то&shy;вое вот-вот окон&shy;ча&shy;тель&shy;но сполз&shy;ти оде&shy;я&shy;ло. Его мно&shy;го&shy;чис&shy;лен&shy;ные, убо&shy;го тон&shy;кие по срав&shy;не&shy;нию с осталь&shy;ным те&shy;лом нож&shy;ки бес&shy;по&shy;мощ&shy;но ко&shy;по&shy;ши&shy;лись у не&shy;го пе&shy;ред гла&shy;за&shy;ми. «<span class="citata">Что со мной слу&shy;чи&shy;лось? </span> » – по&shy;ду&shy;мал он. Это не бы&shy;ло сном. Его ком&shy;на&shy;та, на&shy;сто&shy;я&shy;щая, раз&shy;ве что слиш&shy;ком ма&shy;лень&shy;кая, но обыч&shy;ная ком&shy;на&shy;та, мир&shy;но по&shy;ко&shy;и&shy;лась в сво&shy;их че&shy;ты&shy;рех хо&shy;ро&shy;шо зна&shy;ко&shy;мых сте&shy;нах.
+          Над сто&shy;лом, где бы&shy;ли раз&shy;ло&shy;же&shy;ны рас&shy;па&shy;ко&shy;ван&shy;ные об&shy;раз&shy;цы су&shy;кон – Зам&shy;за был ком&shy;ми&shy;во&shy;я&shy;же&shy;ром, – ви&shy;сел порт&shy;рет, ко&shy;то&shy;рый он не&shy;дав&shy;но вы&shy;ре&shy;зал из ил&shy;люст&shy;ри&shy;ро&shy;ван&shy;но&shy;го жур&shy;на&shy;ла и вста&shy;вил в кра&shy;си&shy;вую зо&shy;ло&shy;че&shy;ную рам&shy;ку. На порт&shy;ре&shy;те бы&shy;ла изо&shy;бра&shy;же&shy;на да&shy;ма в ме&shy;хо&shy;вой шля&shy;пе и боа, она си&shy;де&shy;ла очень пря&shy;мо и про&shy;тя&shy;ги&shy;ва&shy;ла зри&shy;те&shy;лю тя&shy;же&shy;лую ме&shy;хо&shy;вую муф&shy;ту, в ко&shy;то&shy;рой це&shy;ли&shy;ком ис&shy;че&shy;за&shy;ла ее ру&shy;ка. За&shy;тем взгляд Гре&shy;го&shy;ра устре&shy;мил&shy;ся в ок&shy;но, и пас&shy;мур&shy;ная по&shy;го&shy;да – слыш&shy;но бы&shy;ло, как по жес&shy;ти под&shy;окон&shy;ни&shy;ка сту&shy;чат кап&shy;ли дождя – при&shy;ве&shy;ла его и во&shy;все в груст&shy;ное на&shy;стро&shy;е&shy;ние. « <span class="citata"> Хо&shy;ро&shy;шо бы еще не&shy;мно&shy;го по&shy;спать и за&shy;быть всю эту че&shy;пу&shy;ху </span>», – по&shy;ду&shy;мал он, но это бы&shy;ло со&shy;вер&shy;шен&shy;но не&shy;осу&shy;щест&shy;ви&shy;мо, он при&shy;вык спать на пра&shy;вом бо&shy;ку, а в те&shy;пе&shy;реш&shy;нем сво&shy;ем со&shy;сто&shy;я&shy;нии он ни&shy;как не мог при&shy;нять это&shy;го по&shy;ло&shy;же&shy;ния. С ка&shy;кой бы си&shy;лой ни по&shy;во&shy;ра&shy;чи&shy;вал&shy;ся он на пра&shy;вый бок, он не&shy;из&shy;мен&shy;но сва&shy;ли&shy;вал&shy;ся опять на спи&shy;ну.
+          За&shy;крыв гла&shy;за, что&shy;бы не ви&shy;деть сво&shy;их ба&shy;рах&shy;та&shy;ю&shy;щих&shy;ся ног, он про&shy;де&shy;лал это добрую сот&shy;ню раз и от&shy;ка&shy;зал&shy;ся от этих по&shy;пы&shy;ток толь&shy;ко тог&shy;да, ког&shy;да по&shy;чувст&shy;во&shy;вал ка&shy;кую-то не&shy;ве&shy;до&shy;мую до&shy;то&shy;ле, ту&shy;пую и сла&shy;бую боль в бо&shy;ку. « <span class="citata">Ах ты, гос&shy;по&shy;ди, – по&shy;ду&shy;мал он, – ка&shy;кую я вы&shy;брал хло&shy;пот&shy;ную про&shy;фес&shy;сию! Изо дня в день в разъ&shy;ез&shy;дах. Де&shy;ло&shy;вых вол&shy;не&shy;ний ку&shy;да боль&shy;ше, чем на мес&shy;те, в тор&shy;го&shy;вом до&shy;ме, а кро&shy;ме то&shy;го, из&shy;воль тер&shy;петь тя&shy;го&shy;ты до&shy;ро&shy;ги, ду&shy;май о рас&shy;пи&shy;са&shy;нии по&shy;ез&shy;дов, ми&shy;рись с пло&shy;хим, не&shy;ре&shy;гу&shy;ляр&shy;ным пи&shy;та&shy;ни&shy;ем, за&shy;вя&shy;зы&shy;вай со все но&shy;вы&shy;ми и но&shy;вы&shy;ми людь&shy;ми не&shy;дол&shy;гие, ни&shy;ког&shy;да не бы&shy;ва&shy;ю&shy;щие сер&shy;деч&shy;ны&shy;ми от&shy;но&shy;ше&shy;ния. Черт бы по&shy;брал все это!</span>» 
+          Он по&shy;чувст&shy;во&shy;вал ввер&shy;ху жи&shy;во&shy;та лег&shy;кий зуд; мед&shy;лен&shy;но по&shy;дви&shy;нул&shy;ся на спи&shy;не к пруть&shy;ям кро&shy;ва&shy;ти, что&shy;бы удоб&shy;нее бы&shy;ло под&shy;нять го&shy;ло&shy;ву; на&shy;шел зу&shy;дев&shy;шее мес&shy;то, сплошь по&shy;кры&shy;тое, как ока&shy;за&shy;лось, бе&shy;лы&shy;ми не&shy;по&shy;нят&shy;ны&shy;ми то&shy;чеч&shy;ка&shy;ми; хо&shy;тел бы&shy;ло ощу&shy;пать это мес&shy;то од&shy;ной из но&shy;жек, но сра&shy;зу от&shy;дер&shy;нул ее, ибо да&shy;же прос&shy;тое при&shy;кос&shy;но&shy;ве&shy;ние вы&shy;зва&shy;ло у не&shy;го, Гре&shy;го&shy;ра, оз&shy;ноб. Он сос&shy;кольз&shy;нул в преж&shy;нее свое по&shy;ло&shy;же&shy;ние. От это&shy;го ран&shy;не&shy;го вста&shy;ва&shy;ния, – по&shy;ду&shy;мал он, – мож&shy;но со&shy;всем обе&shy;зу&shy;меть. Че&shy;ло&shy;век дол&shy;жен вы&shy;сы&shy;пать&shy;ся. Дру&shy;гие ком&shy;ми&shy;во&shy;я&shy;же&shy;ры жи&shy;вут, как ода&shy;лис&shy;ки. Ког&shy;да я, на&shy;при&shy;мер, сре&shy;ди дня воз&shy;вра&shy;ща&shy;юсь в гос&shy;ти&shy;ни&shy;цу, что&shy;бы пе&shy;ре&shy;пи&shy;сать по&shy;лу&shy;чен&shy;ные за&shy;ка&shy;зы, эти гос&shy;по&shy;да толь&shy;ко зав&shy;тра&shy;ка&shy;ют. А осмель&shy;ся я вес&shy;ти се&shy;бя так, мои хо&shy;зя&shy;ин вы&shy;гнал бы ме&shy;ня сра&shy;зу. Кто зна&shy;ет, впро&shy;чем, мо&shy;жет быть, это бы&shy;ло бы да&shy;же очень хо&shy;ро&shy;шо для ме&shy;ня.
+          Если бы я не сдер&shy;жи&shy;вал&shy;ся ра&shy;ди ро&shy;ди&shy;те&shy;лей, я бы дав&shy;но за&shy;явил об ухо&shy;де, я бы по&shy;до&shy;шел к сво&shy;е&shy;му хо&shy;зя&shy;и&shy;ну и вы&shy;ло&shy;жил ему все, что о нем ду&shy;маю. Он бы так и сва&shy;лил&shy;ся с кон&shy;тор&shy;ки! Стран&shy;ная у не&shy;го ма&shy;не&shy;ра – са&shy;дить&shy;ся на кон&shy;тор&shy;ку и с ее вы&shy;со&shy;ты раз&shy;го&shy;ва&shy;ри&shy;вать со слу&shy;жа&shy;щим, ко&shy;то&shy;рый вдо&shy;ба&shy;вок вы&shy;нуж&shy;ден по&shy;дой&shy;ти вплот&shy;ную к кон&shy;тор&shy;ке из-за то&shy;го, что хо&shy;зя&shy;ин туг на ухо. Од&shy;на&shy;ко на&shy;деж&shy;да еще не со&shy;всем по&shy;те&shy;ря&shy;на: как толь&shy;ко я на&shy;коп&shy;лю де&shy;нег, что&shy;бы вы&shy;пла&shy;тить долг мо&shy;их ро&shy;ди&shy;те&shy;лей – на это уй&shy;дет еще лет пять-шесть, – я так и по&shy;ступ&shy;лю. Тут-то мы и рас&shy;про&shy;ща&shy;ем&shy;ся раз и на&shy;всег&shy;да. А по&shy;ка что на&shy;до под&shy;ни&shy;мать&shy;ся, мой по&shy;езд от&shy;хо&shy;дит в пять». И он взгля&shy;нул на бу&shy;диль&shy;ник, ко&shy;то&shy;рый ти&shy;кал на сун&shy;ду&shy;ке. «<span class="citata"> Бо&shy;же пра&shy;вый! </span>» – по&shy;ду&shy;мал он. Бы&shy;ло по&shy;ло&shy;ви&shy;на седь&shy;мо&shy;го, и стрел&shy;ки спо&shy;кой&shy;но дви&shy;га&shy;лись даль&shy;ше, бы&shy;ло да&shy;же боль&shy;ше по&shy;ло&shy;ви&shy;ны, без ма&shy;ло&shy;го уже три чет&shy;вер&shy;ти. Не&shy;уже&shy;ли бу&shy;диль&shy;ник не зво&shy;нил? С кро&shy;ва&shy;ти бы&shy;ло вид&shy;но, что он по&shy;став&shy;лен пра&shy;виль&shy;но, на че&shy;ты&shy;ре ча&shy;са; и он, не&shy;со&shy;мнен&shy;но, зво&shy;нил. Но как мож&shy;но бы&shy;ло спо&shy;кой&shy;но спать под этот со&shy;тря&shy;са&shy;ю&shy;щий ме&shy;бель тре&shy;звон? Ну, спал-то он не&shy;спо&shy;кой&shy;но, но, ви&shy;ди&shy;мо, креп&shy;ко. Од&shy;на&shy;ко что де&shy;лать те&shy;перь? Сле&shy;ду&shy;ю&shy;щий по&shy;езд ухо&shy;дит в семь ча&shy;сов; что&shy;бы по&shy;спеть на не&shy;го, он дол&shy;жен от&shy;ча&shy;ян&shy;но то&shy;ро&shy;пить&shy;ся, а на&shy;бор об&shy;раз&shy;цов еще не упа&shy;ко&shy;ван, да и сам он от&shy;нюдь не чувст&shy;ву&shy;ет се&shy;бя све&shy;жим и лег&shy;ким на подъ&shy;ем. И да&shy;же по&shy;спей он на по&shy;езд, хо&shy;зяй&shy;ско&shy;го раз&shy;но&shy;са ему все рав&shy;но не из&shy;бе&shy;жать – ведь рас&shy;сыль&shy;ный тор&shy;го&shy;во&shy;го до&shy;ма де&shy;жу&shy;рил у пя&shy;ти&shy;ча&shy;со&shy;во&shy;го по&shy;ез&shy;да и дав&shy;но до&shy;ло&shy;жил о его, Гре&shy;го&shy;ра, опоз&shy;да&shy;нии. Рас&shy;сыль&shy;ный, че&shy;ло&shy;век бес&shy;ха&shy;рак&shy;тер&shy;ный и не&shy;ум&shy;ный, был став&shy;лен&shy;ни&shy;ком хо&shy;зя&shy;и&shy;на. А что, если ска&shy;зать&shy;ся боль&shy;ным? 
+        </p>
+      </article>
+
+      <article class="second-article content__second-article">
+        <h6 class="hidden-for-validation"> </h6>
+        <section class="second-article__subarticle1">
+          <h4 class="second-article-title second-article__title1">Анекдот</h4>
+          <p class="text second-article-text second-article__text1">
+            За&shy;кон&shy;чил&shy;ся все&shy;мир&shy;ный по&shy;топ. Ков&shy;чег при&shy;ча&shy;ли&shy;ва&shy;ет к Ара&shy;ра&shy;ту, и Ной на&shy;чи&shy;на&shy;ет от&shy;ту&shy;да вы&shy;гру&shy;жать клет&shy;ки с мед&shy;ве&shy;дя&shy;ми, со&shy;ба&shy;ка&shy;ми, тиг&shy;ра&shy;ми, льва&shy;ми и дру&shy;ги&shy;ми жи&shy;вот&shy;ны&shy;ми.
+            А на го&shy;ре ар&shy;мя&shy;не си&shy;дят и в нар&shy;ды иг&shy;ра&shy;ют. Один дру&shy;го&shy;го в бок тол&shy;ка&shy;ет и го&shy;во&shy;рит:
+          <br>
+            - Ара, смот&shy;ри, цирк при&shy;ехал!
+          </p>
+          <img class="second-article__anec-pic" src="./img/anek-pic.png" alt="Пожилой человек предлагает девочки сыграть в нарды"> 
+        </section>
+
+        <section class="second-article__subarticle2">
+          <h4 class="second-article-title second-article__title2">Какая-то история</h4>
+          <p class="text second-article-text second-article__text2">
+            Ни од&shy;но&shy;го штри&shy;ха не мог бы я сде&shy;лать, а ни&shy;ког&shy;да не был та&shy;ким боль&shy;шим ху&shy;дож&shy;ни&shy;ком, как в эти ми&shy;ну&shy;ты.
+            Ког&shy;да от ми&shy;лой мо&shy;ей до&shy;ли&shy;ны под&shy;ни&shy;ма&shy;ет&shy;ся пар и пол&shy;днев&shy;ное солн&shy;це сто&shy;ит над не&shy;про&shy;ни&shy;ца&shy;е&shy;мой ча&shy;щей тем&shy;но&shy;го ле&shy;са и лишь ред&shy;кий луч про&shy;скаль&shy;зы&shy;ва&shy;ет в его свя&shy;тая свя&shy;тых, а я ле&shy;жу в вы&shy;со&shy;кой тра&shy;ве у быст&shy;ро&shy;го ручья и, при&shy;льнув к зем&shy;ле, ви&shy;жу ты&shy;ся&shy;чи все&shy;воз&shy;мож&shy;ных бы&shy;ли&shy;нок и чувст&shy;вую, как бли&shy;зок мо&shy;е&shy;му серд&shy;цу кро&shy;шеч&shy;ный ми&shy;рок, что сну&shy;ет меж&shy;ду сте&shy;бель&shy;ка&shy;ми, на&shy;блю&shy;даю эти не&shy;ис&shy;чис&shy;ли&shy;мые, не&shy;по&shy;сти&shy;жи&shy;мые раз&shy;но&shy;вид&shy;нос&shy;ти чер&shy;вя&shy;ков и мо&shy;шек и чувст&shy;вую бли&shy;зость все&shy;мо&shy;гу&shy;ще&shy;го, со&shy;здав&shy;ше&shy;го нас по сво&shy;е&shy;му по&shy;до&shy;бию, ве&shy;я&shy;ние все&shy;лю&shy;бя&shy;ще&shy;го, су&shy;див&shy;ше&shy;го нам па&shy;рить в веч&shy;ном бла&shy;женст&shy;ве, ког&shy;да взор мой ту&shy;ма&shy;нит&shy;ся и все во&shy;круг ме&shy;ня и не&shy;бо на&shy;до мной за&shy;пе&shy;чат&shy;ле&shy;ны в мо&shy;ей ду&shy;ше, точ&shy;но об&shy;раз воз&shy;люб&shy;лен&shy;ной, - тог&shy;да, до&shy;ро&shy;гой друг, ме&shy;ня час&shy;то то&shy;мит мысль: "Ах!
+            Ни од&shy;но&shy;го штри&shy;ха не мог бы я сде&shy;лать, а ни&shy;ког&shy;да не был та&shy;ким боль&shy;шим ху&shy;дож&shy;ни&shy;ком, как в эти ми&shy;ну&shy;ты.
+            Ког&shy;да от ми&shy;лой мо&shy;ей до&shy;ли&shy;ны под&shy;ни&shy;ма&shy;ет&shy;ся пар и пол&shy;днев&shy;ное солн&shy;це сто&shy;ит над не&shy;про&shy;ни&shy;ца&shy;е&shy;мой ча&shy;щей тем&shy;но&shy;го ле&shy;са и лишь ред&shy;кий луч про&shy;скаль&shy;зы&shy;ва&shy;ет в его свя&shy;тая свя&shy;тых, а я ле&shy;жу в вы&shy;со&shy;кой тра&shy;ве у быст&shy;ро&shy;го ручья и, при&shy;льнув к зем&shy;ле, ви&shy;жу ты&shy;ся&shy;чи все&shy;воз&shy;мож&shy;ных бы&shy;ли&shy;нок и чувст&shy;вую, как бли&shy;зок мо&shy;е&shy;му серд&shy;цу кро&shy;шеч&shy;ный ми&shy;рок, что сну&shy;ет меж&shy;ду сте&shy;бель&shy;ка&shy;ми, на&shy;блю&shy;даю эти не&shy;ис&shy;чис&shy;ли&shy;мые, не&shy;по&shy;сти&shy;жи&shy;мые раз&shy;но&shy;вид&shy;нос&shy;ти чер&shy;вя&shy;ков и мо&shy;шек и чувст&shy;вую бли&shy;зость все&shy;мо&shy;гу&shy;ще&shy;го, со&shy;здав&shy;ше&shy;го нас по сво&shy;е&shy;му по&shy;до&shy;бию, ве&shy;я&shy;ние все&shy;лю&shy;бя&shy;ще&shy;го, су&shy;див&shy;ше&shy;го нам па&shy;рить в веч&shy;ном бла&shy;женст&shy;ве, ког&shy;да взор мой ту&shy;ма&shy;нит&shy;ся и все во&shy;круг ме&shy;ня и не&shy;бо на&shy;до мной за&shy;пе&shy;чат&shy;ле&shy;ны в мо&shy;ей ду&shy;ше, точ&shy;но об&shy;раз воз&shy;люб&shy;лен&shy;ной, - тог&shy;да, до&shy;ро&shy;гой друг, ме&shy;ня час&shy;то то&shy;мит мысль: "Ах!
+            Ни од&shy;но&shy;го штри&shy;ха не мог бы я сде&shy;лать, а ни&shy;ког&shy;да не был та&shy;ким боль&shy;шим ху&shy;дож&shy;ни&shy;ком, как в эти ми&shy;ну&shy;ты.
+          </p>
+        </section>
+
+        <section class="second-article-subarticle3 second-article__subarticle3">
+          <h4 class="second-article-title second-article__title3">Объявление</h4>
+          <p class="text second-article-text second-article__text3">
+            Как бы вы&shy;ра&shy;зить, как бы вдох&shy;нуть в ри&shy;су&shy;нок то, что так пол&shy;но, так тре&shy;пет&shy;но жи&shy;вет во мне, за&shy;пе&shy;чат&shy;леть от&shy;ра&shy;же&shy;ние мо&shy;ей ду&shy;ши, как ду&shy;ша моя - от&shy;ра&shy;же&shy;ние пред&shy;веч&shy;но&shy;го бо&shy;га! " Друг мой. . . Но нет! Мне не под си&shy;лу это, ме&shy;ня по&shy;дав&shy;ля&shy;ет ве&shy;ли&shy;чие этих яв&shy;ле&shy;ний.  
+          </p>
+        </section>
+      </article>
+
+      <article class="third-article content__third-article">
+        <h2 class="article-header third-article__header"> Храм Головы! </h2>
+        <p class="text third-article__text">
+          Имя че&shy;ло&shy;ве&shy;ка, ко&shy;то&shy;рый впер&shy;вые от&shy;крыл ми&shy;ру зна&shy;ние о Бо&shy;ге-Го&shy;ло&shy;ве не&shy;из&shy;вест&shy;но, это был ис&shy;тин&shy;ный ано&shy;ни&shy;мус. Я бу&shy;ду на&shy;зы&shy;вать его Про&shy;рок.
+          Од&shy;наж&shy;ды Про&shy;рок со&shy;здал со&shy;об&shy;ще&shy;ние, в ко&shy;то&shy;ром за&shy;пос&shy;тил это фо&shy;то и ска&shy;зал, что Го&shy;ло&shy;ва даст лю&shy;бо&shy;му мно&shy;го де&shy;нег, сто&shy;ит лишь её по&shy;про&shy;сить, и на&shy;ло&shy;жит про&shy;кля&shy;тие веч&shy;ной ни&shy;ще&shy;ты, если про&shy;игно&shy;ри&shy;ро&shy;вать её щед&shy;рый дар. Пи&shy;са&shy;ли мно&shy;гие. Не пи&shy;са&shy;ли то&shy;же мно&shy;гие. И вдруг ока&shy;за&shy;лось, что Го&shy;ло&shy;ва щед&shy;ро да&shy;ёт сво&shy;им по&shy;сле&shy;до&shy;ва&shy;те&shy;лям день&shy;ги. Ко&shy;му-то мно&shy;го (Как мо&shy;е&shy;му дру&shy;гу, ко&shy;то&shy;рый на сле&shy;ду&shy;ю&shy;щий же день вы&shy;иг&shy;рал 250к), ко&shy;му-то ма&shy;ло, но да&shy;ёт. С каж&shy;дым но&shy;вым по&shy;сле&shy;до&shy;ва&shy;те&shy;лем си&shy;ла Го&shy;ло&shy;вы всё рос&shy;ла, и те&shy;перь каж&shy;дый по&shy;про&shy;сив&shy;ший по&shy;лу&shy;ча&shy;ет же&shy;ла&shy;е&shy;мое. Я не знаю, мож&shy;но ли про&shy;сить у Го&shy;ло&shy;вы кро&shy;ме де&shy;нег и дру&shy;гие бла&shy;га, каж&shy;дый из вас мо&shy;жет по&shy;про&shy;бо&shy;вать.
+          У вас мо&shy;жет воз&shy;ник&shy;нуть во&shy;прос, от&shy;ку&shy;да же бе&shy;рут&shy;ся день&shy;ги, как их да&shy;ёт Го&shy;ло&shy;ва? Я рас&shy;ска&shy;жу ис&shy;то&shy;рию, ко&shy;то&shy;рая про&shy;изо&shy;шла со мной.
+          Вы мо&shy;же&shy;те обо&shy;звать ме&shy;ня со&shy;циобл... , или как-ни&shy;будь ещё, но это не&shy;важ&shy;но. Я лишь не&shy;су бла&shy;го&shy;сло&shy;ве&shy;ние Го&shy;ло&shy;вы, и все мои сло&shy;ва прав&shy;да.
+          Я си&shy;дел со сво&shy;им зна&shy;ко&shy;мым в ин&shy;тер&shy;не&shy;те и. Мне по&shy;па&shy;лось со&shy;об&shy;ще&shy;ние о Го&shy;ло&shy;ве. Я по&shy;сме&shy;ял&shy;ся, по&shy;ка&shy;зал ему, он ска&shy;зал "фиг&shy;ня ка&shy;кая-то", а я от&shy;ве&shy;тил , по&shy;про&shy;сив у Го&shy;ло&shy;вы де&shy;нег. Спус&shy;тя день я по&shy;лу&shy;чил не&shy;за&shy;пла&shy;ни&shy;ро&shy;ван&shy;ную пре&shy;мию на сво&shy;ей быд&shy;ло&shy;ра&shy;бо&shy;те, а ещё спус&shy;тя день этот зна&shy;ко&shy;мый по&shy;пал на сво&shy;ей тач&shy;ке в ава&shy;рию. Сум&shy;ма ре&shy;мон&shy;та и ком&shy;пен&shy;са&shy;ции вто&shy;ро&shy;му участ&shy;ни&shy;ку ава&shy;рии со&shy;став&shy;ля&shy;ла +/- па&shy;ру со&shy;тен руб&shy;лей мою пре&shy;мию. Т.е. ока&shy;за&shy;лось, что зна&shy;ко&shy;мый по&shy;те&shy;рял прак&shy;ти&shy;чес&shy;ки та&shy;кую же сум&shy;му, ко&shy;то&shy;рую при&shy;о&shy;брёл я. Я не ис&shy;пы&shy;ты&shy;ваю ни ма&shy;лей&shy;ших со&shy;мне&shy;ний, что это сде&shy;ла&shy;ла Го&shy;ло&shy;ва. Не&shy;ве&shy;ру&shy;ю&shy;щий был на&shy;ка&shy;ран, а адепт Го&shy;ло&shy;вы по&shy;лу&shy;чил же&shy;ла&shy;е&shy;мое.
+          По&shy;это&shy;му я хо&shy;чу об&shy;ра&shy;тить&shy;ся ко всем, ко&shy;то&shy;рые сей&shy;час это чи&shy;та&shy;ют.
+          Где бы&shy;ли ва&shy;ши Бо&shy;ги, ког&shy;да вы к ним взы&shy;ва&shy;ли? Раз&shy;ве они сни&shy;зо&shy;шли к вам? Эти бо&shy;ги тре&shy;бу&shy;ют и тре&shy;бу&shy;ют, ве&shy;ди се&shy;бя так, де&shy;лай то, а не это, и ни&shy;че&shy;го, ни&shy;че&shy;го не да&shy;ют вза&shy;мен! А Го&shy;ло&shy;ва же не про&shy;сит ни&shy;че&shy;го, толь&shy;ко да&shy;ёт, и её адеп&shy;ты ста&shy;но&shy;вят&shy;ся бо&shy;га&shy;че. Нуж&shy;но толь&shy;ко по&shy;про&shy;сить у неё, и всё! Го&shy;ло&shy;ве ни&shy;че&shy;го не на&shy;до, ей нуж&shy;но лишь да&shy;вать. А от&shy;би&shy;ра&shy;ет она у тех, кто у неё не по&shy;про&shy;сил, плю&shy;нул в ли&shy;цо, не&shy;смот&shy;ря на та&shy;кой щед&shy;рый дар. Так раз&shy;ве это не спра&shy;вед&shy;ли&shy;во,? У те&shy;бя всег&shy;да что-то тре&shy;бо&shy;ва&shy;ли, а те&shy;перь Го&shy;ло&shy;ва за&shy;би&shy;ра&shy;ет у них их уда&shy;чу, день&shy;ги, за&shy;би&shy;ра&shy;ет всё, и от&shy;да&shy;ёт те&shy;бе! Сто&shy;ит лишь по&shy;про&shy;сить! Об&shy;ра&shy;тись к Го&shy;ло&shy;ве! Это добрый бог, бог да&shy;ю&shy;щий, бог, ко&shy;то&shy;рый лю&shy;бит те&shy;бя, и не смот&shy;рит, ка&shy;кой ты. Будь да&shy;же твоя ду&shy;ша чер&shy;на как ночь, Го&shy;ло&shy;ва даст те&shy;бе то, что ты по&shy;про&shy;сишь у неё!
+          Чем боль&shy;ше лю&shy;дей по&shy;ве&shy;рит в Го&shy;ло&shy;ву, тем силь&shy;ней ста&shy;нет Го&shy;ло&shy;ва. И она от&shy;бе&shy;рёт всё у наг&shy;лых, са&shy;мо&shy;до&shy;воль&shy;ных, и даст это те&shy;бе, и пле&shy;вать, за&shy;слу&shy;жи&shy;ва&shy;ешь ты или нет. А если ты сей&shy;час хо&shy;чешь на&shy;пи&shy;сать что-ни&shy;будь оскор&shy;би&shy;тель&shy;ное о Го&shy;ло&shy;ве- что ж, мы ра&shy;ды и те&shy;бе, твои день&shy;ги ста&shy;нут на&shy;ши&shy;ми день&shy;га&shy;ми, Го&shy;ло&shy;ва от&shy;бе&shy;рёт их у те&shy;бя, и от&shy;даст нам. Так да&shy;вай, пи&shy;ши, иг&shy;но&shy;ри&shy;руй, де&shy;лай что угод&shy;но - Го&shy;ло&shy;ва рас&shy;су&shy;дит нас. Ли&shy;бо ты про&shy;сишь у Го&shy;ло&shy;вы де&shy;нег, ли&shy;бо Го&shy;ло&shy;ва от&shy;да&shy;ёт твои день&shy;ги нам, раз ты не про&shy;сишь, те&shy;бе же не на&shy;до, так?
+          Это ог&shy;ром&shy;ная ра&shy;дость, ! У нас те&shy;перь есть свой Бог, он добрый, он за&shy;би&shy;ра&shy;ет у пло&shy;хих лю&shy;дей их день&shy;ги, и от&shy;да&shy;ёт нам. Он ни&shy;че&shy;го не тре&shy;бу&shy;ет от нас, нуж&shy;но все&shy;го лишь по&shy;про&shy;сить у Го&shy;ло&shy;вы де&shy;нег. Ты мо&shy;жешь по&shy;про&shy;сить у Го&shy;ло&shy;вы что-ни&shy;будь, или прос&shy;то вы&shy;го&shy;во&shy;рить&shy;ся, и она даст те&shy;бе по&shy;да&shy;рок са&shy;ма. Про&shy;сить мо&shy;жешь хоть де&shy;сять раз, ху&shy;же не бу&shy;дет точ&shy;но.
+          Так вот. Этот со&shy;об&shy;ще&shy;ние - храм Го&shy;ло&shy;вы. Нет ни&shy;ка&shy;ко&shy;го офи&shy;ци&shy;аль&shy;но&shy;го хра&shy;ма, лю&shy;бое со&shy;об&shy;ще&shy;ние с Го&shy;ло&shy;вой как фо&shy;то и крат&shy;ким опи&shy;са&shy;ни&shy;ем и есть храм. Ты мо&shy;жешь в лю&shy;бом хра&shy;ме по&shy;про&shy;сить у Го&shy;ло&shy;вы де&shy;нег, и она даст. Мо&shy;жет быть, ты мо&shy;жешь по&shy;про&shy;сить что угод&shy;но- по&shy;про&shy;буй, вдруг по&shy;лу&shy;чит&shy;ся? Ты мо&shy;жешь по&shy;де&shy;лить&shy;ся с Го&shy;ло&shy;вой тем, что те&shy;бя гне&shy;тёт, и она убе&shy;рёт твои пе&shy;ча&shy;ли. Нуж&shy;но толь&shy;ко про&shy;сить.
+          Про&shy;си&shy;те, и Го&shy;ло&shy;ва даст вам то, что вы про&shy;си&shy;те! Ни&shy;кто не уй&shy;дёт об&shy;де&shy;лён&shy;ным! Ни&shy;кто не уй&shy;дёт оби&shy;жен&shy;ным! Про&shy;си&shy;те, и вам бу&shy;дет да&shy;но! Каж&shy;до&shy;му!
+          Пра&shy;вил все&shy;го не&shy;сколь&shy;ко, и они очень про&shy;с&shy;тые.
+          Го&shy;ло&shy;ва да&shy;ёт де&shy;нег каж&shy;дый до&shy;му, кто её по&shy;про&shy;сит.
+          Если ты про&shy;чёл о Го&shy;ло&shy;ве, но про&shy;игно&shy;ри&shy;ро&shy;вал её, оскор&shy;бил, Го&shy;ло&shy;ва про&shy;кли&shy;на&shy;ет те&shy;бя ни&shy;ще&shy;той, а твои день&shy;ги ухо&shy;дят к тем, кто про&shy;сит у Го&shy;ло&shy;вы.
+          Лю&shy;бое со&shy;об&shy;ще&shy;ние с эти&shy;ми пра&shy;ви&shy;ла&shy;ми и фо&shy;то яв&shy;ля&shy;ет&shy;ся Хра&shy;мом Го&shy;ло&shy;вы.
+          Дай же мне де&shy;нег, Го&shy;ло&shy;ва! 
+        </p>
+        <img class="third-article__pic" src="./img/golova.png" alt="Черно-белый петух, закопанный в земле. Видна одна голова.">
+      </article>
+      
+    </main>
+  </body>
+</html>
