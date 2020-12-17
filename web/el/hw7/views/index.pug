@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  main.index-content
+    .title-wrap
+      h1.index-content__title.gradient-text= title
+    .pigs-list
+      for pig in pigs
+        .pigs-list__item
+          a.pigs-list__link.link_swing(href="/pig?id="+pig.id) #{pig.name}

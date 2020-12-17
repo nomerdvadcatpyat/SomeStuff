@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  .pig-content
+    a.pig-content__back-link.link_swing(href="/") На главную
+    img.pig-content__pic(alt=pig.name, src=pig.href)
+    h1.pig-content__name #{pig.name}
+
