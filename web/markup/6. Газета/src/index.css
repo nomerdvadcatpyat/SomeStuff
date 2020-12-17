@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap'); */
 
 body {
     /* min-height: 100%; */
@@ -10,7 +10,7 @@ body {
                     'content' min-content
                     / 1fr;
     font-size: 18px;
-    font-family: 'Play', sans-serif;
+    /* font-family: 'Play', sans-serif; */
     text-align: left;
 }
 

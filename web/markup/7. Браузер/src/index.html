@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>02-about-cats</title>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <header class="header layout__header">
+      <a href="" class="header-link header__city">Екатеринбург</a>
+
+      <div class="header__user">
+        <label for="open-modal" class="header-link header__settings">Настройка</label>
+        <div class="header__user-info">
+          <a href="" class="header-link header__login">login</a>
+          <a href="" class="header-link header__mail"> Почта <span class="header__mail-count">138</span> </a>
+        </div>
+      </div>
+
+
+    </header> 
+
+    <div class="layout">
+      <main class="content layout__content">
+
+        <div class="upper-content content__upper">
+          <section class="upper-content__left-side"> 
+            <h2 class="upper-content__title">
+              <a href="" class="content__link upper-content__news-now">Сейчас в СМИ</a> 
+              <a href="" class="content__link upper-content__inEkb">в Екатеринбурге</a>
+              <span class="upper-content__date">13 ноября, понедельник 16:57</span>
+            </h2>
+            <ul class="news-list upper-content__news-list">
+              <li class="news-list__item">
+                <a href="" class="content__link">В Кремле ответили на слова экс-главы ЦРУ о «запуганном» Путиным Трампе</a>
+              </li>
+              <li class="news-list__item">
+                <a href="" class="content__link">Число жертв землятресения в Иране и Ираке превысило 350 человек</a>
+              </li>
+              <li class="news-list__item">
+                <a href="" class="content__link">Вероятной целью проникновения в РФ украинского дрона назвали шпионаж</a>
+              </li>
+              <li class="news-list__item">
+                <a href="" class="content__link">Кремль рассказал о местонахождении не явившегося в суд Сечина</a>
+              </li>
+              <li class="news-list__item">
+                <a href="" class="content__link">Кремль прокомментировал перенос послания Путина Федеральному собранию</a>
+              </li>
+            </ul>
+            
+            <div class="currencies upper-content__currencies">
+              <div class="currencies__item">
+                <a href="" class="content__link currencies__name">USD ЦБ</a>
+                <span class="currencies__value">59,18</span>
+                <span class="currencies__delta">-0,10</span>
+              </div>
+              <div class="currencies__item">
+                <a href="" class="content__link currencies__name">EUR ЦБ</a>
+                <span class="currencies__value">68,92</span>
+                <span class="currencies__delta">-0,06</span>
+              </div>
+              <div class="currencies__item">
+                <a href="" class="content__link currencies__name">НЕФТЬ</a>
+                <span class="currencies__value">63,44</span>
+                <span class="currencies__delta">-0,27%</span>
+              </div>
+              <a href="" class="content__link currencies__next"> ••• </a>
+            </div>
+          </section>
+
+          <div class="advertisement upper-content__right-side">
+            <img src="./images/skeit.png" alt="Скейтборд и на нем число 32" class="advertisement__img">
+            <span class="advertisment__constraint">18+</span>
+            <span class="advertisement__stock">Акция до 1.12.2017</span>
+            <a href="" class="advertisement__title">32 ГБ студентам <br> на Яндекс.Диске</a>
+            <span class="advertisement__text">Бесплатно и навсегда</span>
+          </div>
+        </div>
+
+        <div class="middle-content content__middle">
+          <img class="middle-content__logo" alt="Лого Яндекса" src="./images/logo.svg">
+          <div class="middle-content__links">
+            <a href="" class="middle-content__link">Видео</a>
+            <a href="" class="middle-content__link">Картинки</a>
+            <a href="" class="middle-content__link">Новости</a>
+            <a href="" class="middle-content__link">Карты</a>
+            <a href="" class="middle-content__link">Маркет</a>
+            <a href="" class="middle-content__link">Переводчик</a>
+            <a href="" class="middle-content__link">Музыка</a>
+            <a href="" class="middle-content__link">ещё</a>
+          </div>
+          <div class="search-container middle-content__search-container">
+            <input type="text" class="search-container__search-input">
+            <a href="" class="search-container__search-button">Найти</a>
+            <img src="./images/keyboard.png" alt="Клавиатура" class="search-container__keyboard">
+            <img src="./images/micro.svg" alt="Микрофон" class="search-container__microphone">
+          </div>
+          
+          <span class="search-example-container middle-content__search-example-container">
+            Найдется все. Например, <span class="search-example-container__search-example">выхожу один я на дорогу</span>
+          </span>
+        </div>
+
+        <img src="./images/big-adv.png" alt="Реклама" class="content__big-advirtisment">
+
+        <input type="checkbox" name="cb" id="cb1" class="vidget-checkbox vidget-checkbox1" checked>
+        <input type="checkbox" name="cb" id="cb2" class="vidget-checkbox vidget-checkbox2" checked>
+        <input type="checkbox" name="cb" id="cb3" class="vidget-checkbox vidget-checkbox3" checked>
+        <input type="checkbox" name="cb" id="cb4" class="vidget-checkbox vidget-checkbox4" checked>
+        <input type="checkbox" name="cb" id="cb5" class="vidget-checkbox vidget-checkbox5" checked>
+        <input type="checkbox" name="cb" id="cb6" class="vidget-checkbox vidget-checkbox6" checked>
+        <input type="checkbox" name="cb" id="cb7" class="vidget-checkbox vidget-checkbox7" checked>
+        <input type="checkbox" name="cb" id="cb8" class="vidget-checkbox vidget-checkbox8" checked>
+        
+        <input type="checkbox" name="modal" id="open-modal" class="open-modal" hidden>
+        <div class="vidgets-settings content__vidget-settings">
+          <label class="vidget-label vidget-label1" for="cb1">Посещаемое</label>
+          <label class="vidget-label vidget-label2" for="cb2">Лучшие анекдоты</label>
+          <label class="vidget-label vidget-label3" for="cb3">Телепрограмма</label>
+          <label class="vidget-label vidget-label4" for="cb4">Автомобильные новости</label>
+          <label class="vidget-label vidget-label5" for="cb5">Погода</label>
+          <label class="vidget-label vidget-label6" for="cb6">Пробки</label>
+          <label class="vidget-label vidget-label7" for="cb7">Карта Екатеринбурга</label>
+          <label class="vidget-label vidget-label8" for="cb8">Афиша</label>
+        </div>
+        
+        <div class="vidgets content__bottom">
+          <section class="vidget poseshaemoe">
+            <h3 class="vidget__title">Посещаемое</h3>
+            <div class="poseshaemoe__item">
+              <a href="" class="content__link">
+                <span class="poseshaemoe__place">Маркет</span> — 
+                <span class="poseshaemoe__description">китайская распродажа</span>
+              </a>
+            </div>
+            <div class="poseshaemoe__item">
+              <a href="" class="content__link">
+                <span class="poseshaemoe__place">Авто.ру</span> — 
+                <span class="poseshaemoe__description">Туссан третьей серии</span>
+              </a>
+            </div>
+            <div class="poseshaemoe__item">
+              <a href="" class="content__link">
+                <span class="poseshaemoe__place">Недвижимость</span> — 
+                <span class="poseshaemoe__description">продажа студии</span>
+              </a>
+            </div>
+            <div class="poseshaemoe__item">
+              <a href="" class="content__link">
+                <span class="poseshaemoe__place">Работа</span> — 
+                <span class="poseshaemoe__description">охранником</span>
+              </a>
+            </div>
+            <div class="poseshaemoe__item">
+              <a href="" class="content__link">
+                <span class="poseshaemoe__place">Здоровье</span> — 
+                <span class="poseshaemoe__description">врач на связи</span>
+              </a>
+            </div>
+            <div class="poseshaemoe__item">
+              <a href="" class="content__link">
+                <span class="poseshaemoe__place">Коллекции</span> — 
+                <span class="poseshaemoe__description">как мелировать волосы</span>
+              </a>
+            </div>
+            <div class="poseshaemoe__item">
+              <a href="" class="content__link">
+                <span class="poseshaemoe__place">Авиабилеты</span> — 
+                <span class="poseshaemoe__description">из Екатеринбурга</span>
+              </a>
+              </div>
+          </section>
+
+          <section class="vidget aneki">
+            <h3 class="vidget__title">
+              Лучшие анекдоты
+            </h3>
+            <p class="aneki__anek">Раздел: 
+              <a href="" class="content__link aneki__link">Медицинские</a> .<br>
+            -Вас лечить хорошо или бесплатно?</p>
+            <a href="" class="content__link aneki__more">Показать ещё</a>
+          </section>
+
+          <section class="vidget tv">
+            <h3 class="vidget__title">Телепрограмма</h3>
+            <div class="tv__item">
+              <span class="tv__time">16:00</span>
+              <span class="tv__title">Понять. Простить</span>
+              <a href="" class="content__link tv__channel">41 Домашний</a>
+            </div>
+            <div class="tv__item">
+              <span class="tv__time">16:30</span>
+              <span class="tv__title">Место встречи</span> 
+              <a href="" class="content__link tv__channel">НТВ</a>
+            </div>
+            <div class="tv__item">
+              <span class="tv__time">16:30</span>
+              <span class="tv__title">Детективы</span>
+              <a href="" class="content__link tv__channel">Пятый канал</a>
+            </div>
+            <div class="tv__item">
+              <span class="tv__time">16:30</span>
+              <span class="tv__title">Новости</span>
+              <a href="" class="content__link tv__channel">РЕН ТВ</a>
+            </div>
+            <div class="tv__item">
+              <span class="tv__time">16:30</span>
+              <span class="tv__title">Гадалка</span>
+              <a href="" class="content__link tv__channel">ТВ-3</a>
+            </div>
+            <div class="tv__item">
+              <span class="tv__time">16:30</span>
+              <span class="tv__title">Реальные пацаны</span>
+              <a href="" class="content__link tv__channel">ТНТ</a>
+            </div>
+          </section>
+
+          <section class="vidget auto-news">
+            <h3 class="vidget__title">Автомобильные новости</h3>
+            <div class="auto-news__layout">
+              <div class="auto-news__item">
+                <a href="" class="content__link auto-news__text">Kia начала производить Sorento в версии «подзаряжаемый гибрид»</a>
+                <span class="auto-news__time">17:00</span>
+              </div>
+              <div class="auto-news__item">
+                <a href="" class="content__link auto-news__text">Появились первые ФОТО салона нового российского Дастера</a>
+                <span class="auto-news__time">16:00</span>
+              </div>
+              <div class="auto-news__item">
+                <a href="" class="content__link auto-news__text">Hennessey представила потенциально самую быструю серийную машину в мире</a>
+                <span class="auto-news__time">15:00</span>
+              </div>
+              <div class="auto-news__item">
+                <a href="" class="content__link auto-news__text">Дума окончательно утвердила обжалование штрафов с дорожных камер через госуслуги</a>
+                <span class="auto-news__time">14:00</span>
+              </div>
+              <div class="auto-news__item">
+                <a href="" class="content__link auto-news__text">Honda отзывает почти 2 млн машин из-за проблем с безопасностью</a>
+                <span class="auto-news__time">13:00</span>
+              </div>
+              <div class="auto-news__item">
+                <a href="" class="content__link auto-news__text">Автомобиль мечты теперь еще доступнее: Toyota RAV4 можно приобрести в кредит с низким ежемесячным платежом и гарантией обратного выкупа</a>
+                <span class="auto-news__time">12:00</span>
+              </div>
+              <div class="auto-news__item">
+                <a href="" class="content__link auto-news__text">Лифтбек JAC J7 с крутым дизайном пришел в Россию: от 899 000 рублей</a>
+                <span class="auto-news__time">11:00</span>
+              </div>
+              <div class="auto-news__item">
+                <a href="" class="content__link auto-news__text">Поляки еще не определились с платформой для своего национального электромобиля, но уже хотят строить завод</a>
+                <span class="auto-news__time">10:00</span>
+              </div>
+            </div>
+          </section>
+          <section class="vidget weather">
+            <div class="current-info">
+              <h3 class="vidget__title">Погода</h3>
+              <img src="./images/weather.png" alt="Облака" class="weather__img">
+              <span class="weather__current">-3&deg;C</span>
+            </div>
+            <span class="weather__after"> Вечер -5, ночь -7 </span>
+           </section>
+          <section class="vidget probki">
+            <div class="current-info">
+              <h3 class="vidget__title">Пробки</h3>
+              <img src="./images/svetofor.svg" alt="Сигнал светофора" class="probki__img">
+              <span class="probki__current">1 балл</span>
+            </div>
+            <span class="probki__after"> На дорогах свободно </span>
+          </section>
+
+          <section class="vidget map">
+            <h3 class="vidget__title">Карта Екатеринбурга</h3>
+            <div class="map__items-wrapper">
+              <a href="" class="content__link map__item">Такси</a>
+              <a href="" class="content__link map__item">Расписания</a>
+              <a href="" class="content__link map__item">Междугородние автобусы</a>
+            </div>
+          </section>
+
+          <section class="vidget afisha">
+            <h3 class="vidget__title">Афиша</h3>
+            <a href="" class="content__link afisha__item">
+              <span class="afisha__event">Субурбикон</span>
+              <span class="afisha__event-description">премьера в чт</span>
+            </a>
+            <a href="" class="content__link afisha__item">
+              <span class="afisha__event">Последний богатырь</span>
+              <span class="afisha__event-description">приключения</span>
+            </a>
+            <a href="" class="content__link afisha__item">
+              <span class="afisha__event">Фиксики: Большой секрет</span>
+              <span class="afisha__event-description">мультфильм</span>
+            </a>
+            <a href="" class="content__link afisha__item">
+              <span class="afisha__event">Тор: Рагнарёк</span>
+              <span class="afisha__event-description">фентези</span>
+            </a>
+            <a href="" class="content__link afisha__item">
+              <span class="afisha__event">Убийство в Восточном...</span>
+              <span class="afisha__event-description">драмма</span>
+            </a>
+            <a href="" class="content__link afisha__item">
+              <span class="afisha__event">Концерты — Brainstorm</span>
+            </a>
+          </section>
+        </div>
+
+      </main>
+    </div>
+  </body>
+</html>
