@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body, .content{
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.content {
+  margin: auto;
+  margin-top: 10%;
+  width: 400px;
+}
+
+.content__input-request {
+  padding: 5px;
+  border: 2px solid #f5bc00;
+  width: 100%;
+  font-size: 30px;
+}
+
+.suggests {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.suggest {
+  text-align: center;
+  border: 1px solid black;
+  border-top: none;
+}
+
+.focused {
+  background-color: #f5bc00;
+}
+
+.hidden {
+  display: none;
+}
+
+.suggest__city, .suggest__airport-code {
+  width: 100%;
+  margin: 5px 0;
+  
+}
+
+.suggest__city {
+  font-weight: 500;
+  font-size: 25px;
+}
